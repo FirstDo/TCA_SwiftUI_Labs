@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:UIKit_Search/UIKit_Search.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:UIKit_TODO/UIKit_TODO.xcodeproj">
    </FileRef>
    <FileRef
