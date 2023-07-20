@@ -1,5 +1,4 @@
 import SwiftUI
-
 import ComposableArchitecture
 
 struct RootView: View {
@@ -43,10 +42,16 @@ struct RootView: View {
                 
                 Section("Effects") {
                     NavigationLink("Basics") {
-                        Effects_BasicsView(store: Store(initialState: Effects_Basics.State(), reducer: Effects_Basics()))
+                        Effects_BasicsView(store: Store(
+                            initialState: Effects_Basics.State(),
+                            reducer: Effects_Basics()
+                        ))
                     }
                     NavigationLink("Cancellation") {
-                        Text("Cancellation")
+                        EffectsCancellationView(store: Store(
+                            initialState: EffectsCancellation.State(),
+                            reducer: EffectsCancellation()
+                        ))
                     }
                     NavigationLink("Long-living effects") {
                         Text("Long-living effects")

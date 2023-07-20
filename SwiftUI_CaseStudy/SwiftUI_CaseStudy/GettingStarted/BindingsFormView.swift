@@ -1,5 +1,4 @@
 import SwiftUI
-
 import ComposableArchitecture
 
 struct BindingsForm: ReducerProtocol {

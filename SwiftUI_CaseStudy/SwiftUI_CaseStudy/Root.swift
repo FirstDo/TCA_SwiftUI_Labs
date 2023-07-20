@@ -11,6 +11,7 @@ struct Root: ReducerProtocol {
         var alertAndConfirmationDialog = AlertAndConfirmationDialog.State()
         var animations = Animations.State()
         var effectBasics = Effects_Basics.State()
+        var effectCancellation = EffectsCancellation.State()
     }
     
     enum Action {
@@ -24,6 +25,7 @@ struct Root: ReducerProtocol {
         case alert(AlertAndConfirmationDialog.Action)
         case animation(Animations.Action)
         case effectBasics(Effects_Basics.Action)
+        case effectCancellaiton(EffectsCancellation.Action)
     }
     
     @Dependency(\.continuousClock) var clock
@@ -49,5 +51,6 @@ struct Root: ReducerProtocol {
         Scope(state: \.alertAndConfirmationDialog, action: /Action.alert) { AlertAndConfirmationDialog() }
         Scope(state: \.animations, action: /Action.animation) { Animations() }
         Scope(state: \.effectBasics, action: /Action.effectBasics) { Effects_Basics() }
+        Scope(state: \.effectCancellation, action: /Action.effectCancellaiton) { EffectsCancellation() }
     }
 }
