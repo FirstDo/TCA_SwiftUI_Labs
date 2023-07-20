@@ -12,6 +12,7 @@ struct Root: ReducerProtocol {
         var animations = Animations.State()
         var effectBasics = Effects_Basics.State()
         var effectCancellation = EffectsCancellation.State()
+        var effectLongLiving = LongLivingEffects.State()
     }
     
     enum Action {
@@ -26,6 +27,7 @@ struct Root: ReducerProtocol {
         case animation(Animations.Action)
         case effectBasics(Effects_Basics.Action)
         case effectCancellaiton(EffectsCancellation.Action)
+        case effectLongLiving(LongLivingEffects.Action)
     }
     
     @Dependency(\.continuousClock) var clock
@@ -52,5 +54,6 @@ struct Root: ReducerProtocol {
         Scope(state: \.animations, action: /Action.animation) { Animations() }
         Scope(state: \.effectBasics, action: /Action.effectBasics) { Effects_Basics() }
         Scope(state: \.effectCancellation, action: /Action.effectCancellaiton) { EffectsCancellation() }
+        Scope(state: \.effectLongLiving, action: /Action.effectLongLiving) { LongLivingEffects() }
     }
 }

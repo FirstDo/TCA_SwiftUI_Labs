@@ -54,7 +54,10 @@ struct RootView: View {
                         ))
                     }
                     NavigationLink("Long-living effects") {
-                        Text("Long-living effects")
+                        LongLivingEffectsView(store: Store(
+                            initialState: LongLivingEffects.State(),
+                            reducer: LongLivingEffects()
+                        ))
                     }
                     NavigationLink("Refreshable") {
                         Text("Refreshable")
