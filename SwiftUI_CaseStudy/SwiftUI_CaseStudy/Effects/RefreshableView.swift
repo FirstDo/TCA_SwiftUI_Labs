@@ -52,13 +52,59 @@ struct Refreshable: ReducerProtocol {
 }
 
 struct RefreshableView: View {
+    @State private var isLoading = false
+    let store: StoreOf<Refreshable>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        WithViewStore(store, observe: {$0 }) { viewStore in
+            List {
+                HStack {
+                    Button {
+                        viewStore.send(.decrementButtonTapped)
+                    } label: {
+                        Image(systemName: "minus")
+                    }
+                    
+                    Text("\(viewStore.count)")
+                    
+                    Button {
+                        viewStore.send(.incrementButtonTapped)
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+                .buttonStyle(.borderless)
+                .frame(maxWidth: .infinity)
+                
+                if let fact = viewStore.fact {
+                    Text(fact).bold()
+                }
+                
+                if isLoading {
+                    HStack {
+                        Button("Cancel") {
+                            viewStore.send(.cancelButtonTapped)
+                        }
+                        Spacer()
+                    }
+                }
+            }
+            .refreshable {
+                defer { isLoading = false }
+                
+                self.isLoading = true
+                await viewStore.send(.refresh).finish()
+            }
+        }
     }
 }
 
-struct RefreshableView_Previews: PreviewProvider {
+struct RefreshableView_Preview: PreviewProvider {
     static var previews: some View {
-        RefreshableView()
+        RefreshableView(store: Store(
+            initialState: Refreshable.State(),
+            reducer: Refreshable()
+        ))
     }
+
 }
