@@ -60,10 +60,16 @@ struct RootView: View {
                         ))
                     }
                     NavigationLink("Refreshable") {
-                        Text("Refreshable")
+                        RefreshableView(store: Store(
+                            initialState: Refreshable.State(),
+                            reducer: Refreshable()
+                        ))
                     }
                     NavigationLink("Timers") {
-                        Text("Timers")
+                        TimerView(store: Store(
+                            initialState: Timers.State(),
+                            reducer: Timers()
+                        ))
                     }
                     NavigationLink("Web socket") {
                         Text("Web socket")
