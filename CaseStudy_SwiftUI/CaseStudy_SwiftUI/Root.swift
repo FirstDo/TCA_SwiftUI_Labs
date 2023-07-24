@@ -15,6 +15,7 @@ struct Root: ReducerProtocol {
         var effectLongLiving = LongLivingEffects.State()
         var effectRefreshable = Refreshable.State()
         var effectTimers = Timers.State()
+        var effectWebSocket = WebSocket.State()
     }
     
     enum Action {
@@ -32,6 +33,7 @@ struct Root: ReducerProtocol {
         case effectLongLiving(LongLivingEffects.Action)
         case effectRefreshable(Refreshable.Action)
         case effectTimer(Timers.Action)
+        case effectWebSocket(WebSocket.Action)
     }
     
     @Dependency(\.continuousClock) var clock
@@ -61,5 +63,6 @@ struct Root: ReducerProtocol {
         Scope(state: \.effectLongLiving, action: /Action.effectLongLiving) { LongLivingEffects() }
         Scope(state: \.effectRefreshable, action: /Action.effectRefreshable) { Refreshable() }
         Scope(state: \.effectTimers, action: /Action.effectTimer) { Timers() }
+        Scope(state: \.effectWebSocket, action: /Action.effectWebSocket) { WebSocket() }
     }
 }

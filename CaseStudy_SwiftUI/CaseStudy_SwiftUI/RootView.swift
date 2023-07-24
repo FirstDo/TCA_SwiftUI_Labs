@@ -72,7 +72,10 @@ struct RootView: View {
                         ))
                     }
                     NavigationLink("Web socket") {
-                        Text("Web socket")
+                        WebSocketView(store: Store(
+                            initialState: WebSocket.State(),
+                            reducer: WebSocket()
+                        ))
                     }
                 }
             }
