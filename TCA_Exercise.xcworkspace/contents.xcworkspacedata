@@ -2,15 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SwiftUI_CaseStudy/SwiftUI_CaseStudy.xcodeproj">
+      location = "group:Search_UIKit/Search_UIKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:UIKit_Search/UIKit_Search.xcodeproj">
+      location = "group:TODO_UIKit/TODO_UIKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:UIKit_TODO/UIKit_TODO.xcodeproj">
+      location = "group:CaseStudy_UIKit/CaseStudy_UIKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:UIKit_CaseStudy/UIKit_CaseStudy.xcodeproj">
+      location = "group:CaseStudy_SwiftUI/CaseStudy_SwiftUI.xcodeproj">
    </FileRef>
 </Workspace>
