@@ -121,7 +121,50 @@ struct WebSocket: ReducerProtocol {
 struct WebSocketView: View {
   let store: StoreOf<WebSocket>
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    WithViewStore(store, observe: { $0 }) { viewStore in
+      Form {
+        Section {
+          VStack(alignment: .leading) {
+            Button(
+              viewStore.connectivityState == .connected
+              ? "Disconnect"
+              : viewStore.connectivityState == .disconnected
+              ? "Connect"
+              : "Conecting..."
+            ) {
+              viewStore.send(.connectButtonTapped)
+            }
+            .buttonStyle(.bordered)
+            .tint(viewStore.connectivityState == .connected ? .red : .green)
+            
+            HStack {
+              TextField(
+                "Type message here",
+                text: viewStore.binding(
+                  get: \.messageToSend, send: WebSocket.Action.messageToSendChanged
+                )
+              )
+              .textFieldStyle(.roundedBorder)
+              
+              Button("Send") {
+                viewStore.send(.sendButtonTapped)
+              }
+              .buttonStyle(.borderless)
+            }
+          }
+        }
+        
+        Section {
+          Text("Status: \(viewStore.connectivityState.rawValue)")
+            .foregroundStyle(.secondary)
+          Text(viewStore.receivedMesage.reversed().joined(separator: "\n"))
+        } header: {
+          Text("Received messages")
+        }
+      }
+      .alert(store.scope(state: \.alert, action: { $0 }), dismiss: .alertDismissed)
+      .navigationTitle("Web Socket")
+    }
   }
 }
 
