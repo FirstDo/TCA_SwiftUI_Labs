@@ -1,17 +1,55 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct NavigationDemo: View {
+struct NavigationDemo: ReducerProtocol {
+  struct State: Equatable {
+    
+  }
+  
+  enum Action {
+    
+  }
+  
+  var body: some ReducerProtocol<State, Action> {
+    Reduce { state, action in
+      return .none
+    }
+  }
+  
+  struct Path: ReducerProtocol {
+    enum State: Equatable {
+      case screenA(ScreenA.State = .init())
+      case screenB
+      case screenC
+    }
+    
+    enum Action {
+      case screenA(ScreenA.Action)
+      case screenB
+      case screenC
+    }
+    
+    var body: some ReducerProtocol<State, Action> {
+      Scope(state: /State.screenA, action: /Action.screenA) {
+        ScreenA()
+      }
+    }
+  }
+}
+
+struct NavigationDemoView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct NavigationDeom_Previews: PreviewProvider {
+struct NavigationDemoView_Previews: PreviewProvider {
     static var previews: some View {
-      NavigationDemo()
+      NavigationDemoView()
     }
 }
+
+// MARK: - Screen A
 
 struct ScreenA: ReducerProtocol {
   struct State: Equatable {
@@ -63,6 +101,74 @@ struct ScreenA: ReducerProtocol {
       state.isLoading = false
       state.fact = nil
       return .none
+    }
+  }
+}
+
+struct ScreenAView: View {
+  let store: StoreOf<ScreenA>
+  var body: some View {
+    WithViewStore(self.store, observe: { $0 }) { viewStore in
+      Form {
+        Section {
+          HStack {
+            Text("\(viewStore.count))")
+            Spacer()
+            Button {
+              viewStore.send(.decrementButtonTapped)
+            } label: {
+              Image(systemName: "minus")
+            }
+            Button {
+              viewStore.send(.incrementButtonTapped)
+            } label: {
+              Image(systemName: "plus")
+            }
+          }
+          
+          Button {
+            viewStore.send(.factButtonTapped)
+          } label: {
+            HStack {
+              Text("Get fact")
+              if viewStore.isLoading {
+                Spacer()
+                ProgressView()
+              }
+            }
+          }
+          
+          if let fact = viewStore.fact {
+            Text(fact)
+          }
+        }
+        
+        Section {
+          Button("Dismiss") {
+            viewStore.send(.dismissButtonTapped)
+          }
+        }
+        
+        Section {
+          NavigationLink(
+            "Go to screen A",
+            state: NavigationDemo.Path.State.screenA(
+              .init(count: viewStore.count)
+            )
+          )
+//          NavigationLink(
+//            "Go to screen B",
+//            state: NavigationDemo.Path.State.screenB()
+//          )
+//          NavigationLink(
+//            "Go to screen C",
+//            state: NavigationDemo.Path.State.screenC(
+//              .init(count: viewStore.count)
+//            )
+//          )
+        }
+      }
+      .buttonStyle(.borderless)
     }
   }
 }
