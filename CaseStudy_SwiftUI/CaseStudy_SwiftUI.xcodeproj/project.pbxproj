@@ -30,6 +30,7 @@
 		879154AA2A6EA6F3002E762E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879154972A6EA6F3002E762E /* RootView.swift */; };
 		879155162A6EA8EF002E762E /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879155152A6EA8EF002E762E /* WebSocketClient.swift */; };
 		879155182A6EB031002E762E /* Effects-WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879155172A6EB031002E762E /* Effects-WebSocket.swift */; };
+		8791551E2A72BFE0002E762E /* NavigationDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8791551D2A72BFE0002E762E /* NavigationDemo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		879154972A6EA6F3002E762E /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		879155152A6EA8EF002E762E /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		879155172A6EB031002E762E /* Effects-WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effects-WebSocket.swift"; sourceTree = "<group>"; };
+		8791551D2A72BFE0002E762E /* NavigationDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDemo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +94,9 @@
 			children = (
 				879154872A6EA6F3002E762E /* CaseStudyApp.swift */,
 				879154882A6EA6F3002E762E /* Dependency */,
-				879154812A6EA6F3002E762E /* Effects */,
 				8791548A2A6EA6F3002E762E /* GettingStarted */,
+				879154812A6EA6F3002E762E /* Effects */,
+				8791551C2A72BFBF002E762E /* Navigation */,
 				879154942A6EA6F3002E762E /* Preview Content */,
 				879154962A6EA6F3002E762E /* Root.swift */,
 				879154972A6EA6F3002E762E /* RootView.swift */,
@@ -147,6 +150,14 @@
 				879154952A6EA6F3002E762E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8791551C2A72BFBF002E762E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				8791551D2A72BFE0002E762E /* NavigationDemo.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +256,7 @@
 				879154AA2A6EA6F3002E762E /* RootView.swift in Sources */,
 				879154A22A6EA6F3002E762E /* OptionalCounterView.swift in Sources */,
 				879154A72A6EA6F3002E762E /* BindingsFormView.swift in Sources */,
+				8791551E2A72BFE0002E762E /* NavigationDemo.swift in Sources */,
 				8791549B2A6EA6F3002E762E /* Effects_Basics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
