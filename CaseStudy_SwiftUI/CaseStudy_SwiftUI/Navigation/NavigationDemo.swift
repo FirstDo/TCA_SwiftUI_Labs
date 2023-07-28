@@ -49,6 +49,29 @@ struct NavigationDemoView_Previews: PreviewProvider {
     }
 }
 
+// MARK: - Screen B
+
+struct ScreenB: ReducerProtocol {
+    struct State :Equatable { }
+    
+    enum Action {
+        case screenATapped
+        case screenBTapped
+        case screenCTapped
+    }
+    
+    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+        switch action {
+        case .screenATapped:
+            return .none
+        case .screenBTapped:
+            return .none
+        case .screenCTapped:
+            return .none
+        }
+    }
+}
+
 // MARK: - Screen A
 
 struct ScreenA: ReducerProtocol {
