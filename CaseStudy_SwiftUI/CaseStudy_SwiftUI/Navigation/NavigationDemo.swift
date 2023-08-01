@@ -7,7 +7,10 @@ struct NavigationDemo: ReducerProtocol {
     }
     
     enum Action {
-        
+        case goBackToScreen(id: StackElementID)
+        case goToABCButtonTapped
+        case path(StackAction<Path.State, Path.Action>)
+        case popToRoot
     }
     
     var body: some ReducerProtocol<State, Action> {
@@ -20,13 +23,13 @@ struct NavigationDemo: ReducerProtocol {
         enum State: Equatable {
             case screenA(ScreenA.State = .init())
             case screenB(ScreenB.State = .init())
-            case screenC
+            case screenC(ScreenC.State = .init())
         }
         
         enum Action {
             case screenA(ScreenA.Action)
             case screenB(ScreenB.Action)
-            case screenC
+            case screenC(ScreenC.Action)
         }
         
         var body: some ReducerProtocol<State, Action> {
@@ -35,6 +38,9 @@ struct NavigationDemo: ReducerProtocol {
             }
             Scope(state: /State.screenB, action: /Action.screenB) {
                 ScreenB()
+            }
+            Scope(state: /State.screenC, action: /Action.screenC) {
+                ScreenC()
             }
         }
     }
@@ -51,50 +57,6 @@ struct NavigationDemoView_Previews: PreviewProvider {
         NavigationDemoView()
     }
 }
-
-// MARK: - Screen B
-
-struct ScreenB: ReducerProtocol {
-    struct State :Equatable { }
-    
-    enum Action {
-        case screenAButtonTapped
-        case screenBButtonTapped
-        case screenCButtonTapped
-    }
-    
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
-        switch action {
-        case .screenAButtonTapped:
-            return .none
-        case .screenBButtonTapped:
-            return .none
-        case .screenCButtonTapped:
-            return .none
-        }
-    }
-}
-
-struct ScreenBView: View {
-    let store: StoreOf<ScreenB>
-    
-    var body: some View {
-        WithViewStore(store, observe: { $0 }) { viewStore in
-            Button("Decoupled navigation to screen A") {
-                viewStore.send(.screenAButtonTapped)
-            }
-            Button("Decoupled navigation to screen B") {
-                viewStore.send(.screenBButtonTapped)
-            }
-            Button("Decoupled navigation to screen C") {
-                viewStore.send(.screenCButtonTapped)
-            }
-        }
-        .navigationTitle("Screen B")
-    }
-}
-
-
 
 // MARK: - Screen A
 
@@ -207,15 +169,136 @@ struct ScreenAView: View {
                         "Go to screen B",
                         state: NavigationDemo.Path.State.screenB()
                     )
-                    //          NavigationLink(
-                    //            "Go to screen C",
-                    //            state: NavigationDemo.Path.State.screenC(
-                    //              .init(count: viewStore.count)
-                    //            )
-                    //          )
+                    NavigationLink(
+                        "Go to screen C",
+                        state: NavigationDemo.Path.State.screenC(
+                            .init(count: viewStore.count)
+                        )
+                    )
                 }
             }
             .buttonStyle(.borderless)
         }
+        .navigationTitle("Screen A")
+    }
+}
+
+// MARK: - Screen B
+
+struct ScreenB: ReducerProtocol {
+    struct State :Equatable { }
+    
+    enum Action {
+        case screenAButtonTapped
+        case screenBButtonTapped
+        case screenCButtonTapped
+    }
+    
+    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+        switch action {
+        case .screenAButtonTapped:
+            return .none
+        case .screenBButtonTapped:
+            return .none
+        case .screenCButtonTapped:
+            return .none
+        }
+    }
+}
+
+struct ScreenBView: View {
+    let store: StoreOf<ScreenB>
+    
+    var body: some View {
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            Button("Decoupled navigation to screen A") {
+                viewStore.send(.screenAButtonTapped)
+            }
+            Button("Decoupled navigation to screen B") {
+                viewStore.send(.screenBButtonTapped)
+            }
+            Button("Decoupled navigation to screen C") {
+                viewStore.send(.screenCButtonTapped)
+            }
+        }
+        .navigationTitle("Screen B")
+    }
+}
+
+struct ScreenC: ReducerProtocol {
+    struct State: Equatable {
+        var count = 0
+        var isTimerRunning = false
+    }
+    
+    enum Action: Equatable {
+        case startButtonTapped
+        case stopButtonTapped
+        case timerTick
+    }
+    
+    @Dependency(\.mainQueue) var mainQueue
+    enum CancelID { case timer }
+    
+    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+        switch action {
+        case .startButtonTapped:
+            state.isTimerRunning = true
+            return .run { send in
+                for await _ in self.mainQueue.timer(interval: 1) {
+                    await send(.timerTick)
+                }
+            }
+            .cancellable(id: CancelID.timer)
+            .concatenate(with: .init(value: .stopButtonTapped))
+            
+        case .stopButtonTapped:
+            state.isTimerRunning = false
+            return .cancel(id: CancelID.timer)
+            
+        case .timerTick:
+            state.count += 1
+            return .none
+        }
+    }
+}
+
+struct ScreenCView: View {
+    let store: StoreOf<ScreenC>
+    
+    var body: some View {
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
+            Form {
+                Section {
+                    Text("\(viewStore.count)")
+                    
+                    if viewStore.isTimerRunning {
+                        Button("Stop timer") {
+                            viewStore.send(.stopButtonTapped)
+                        }
+                    } else {
+                        Button("Start timer") {
+                            viewStore.send(.startButtonTapped)
+                        }
+                    }
+                }
+                
+                Section {
+                    NavigationLink(
+                        "Go to screen A",
+                        state: NavigationDemo.Path.State.screenA(.init(count: viewStore.count))
+                    )
+                    
+                    NavigationLink(
+                        "Go to screen B",
+                        state: NavigationDemo.Path.State.screenB()
+                    )
+                    
+                    NavigationLink("Go to screen C", state: NavigationDemo.Path.State.screenC()
+                    )
+                }
+            }
+        }
+        .navigationTitle("Screen C")
     }
 }
