@@ -15,7 +15,42 @@ struct NavigationDemo: ReducerProtocol {
     
     var body: some ReducerProtocol<State, Action> {
         Reduce { state, action in
-            return .none
+            switch action {
+            case let .goBackToScreen(id):
+                state.path.pop(to: id)
+                return .none
+                
+            case .goToABCButtonTapped:
+                state.path.append(.screenA())
+                state.path.append(.screenB())
+                state.path.append(.screenC())
+                return .none
+                
+            case let .path(action):
+                switch action {
+                case .element(id: _, action: .screenB(.screenAButtonTapped)):
+                    state.path.append(.screenA())
+                    return .none
+                    
+                case .element(id: _, action: .screenB(.screenBButtonTapped)):
+                    state.path.append(.screenB())
+                    return .none
+                    
+                case .element(id: _, action: .screenB(.screenCButtonTapped)):
+                    state.path.append(.screenC())
+                    return .none
+                    
+                default:
+                    return .none
+                }
+                
+            case .popToRoot:
+                state.path.removeAll()
+                return .none
+            }
+        }
+        .forEach(\.path, action: /Action.path) {
+            Path()
         }
     }
     
