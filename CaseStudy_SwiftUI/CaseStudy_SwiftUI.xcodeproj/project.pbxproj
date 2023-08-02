@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B1675C22A7A350A0065F33B /* LoadThenNavigate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1675C12A7A350A0065F33B /* LoadThenNavigate.swift */; };
 		879153DF2A6EA480002E762E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879153DE2A6EA480002E762E /* Assets.xcassets */; };
 		879153EC2A6EA4E4002E762E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 879153EB2A6EA4E4002E762E /* ComposableArchitecture */; };
 		879154982A6EA6F3002E762E /* Effects-Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879154822A6EA6F3002E762E /* Effects-Refreshable.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B1675C12A7A350A0065F33B /* LoadThenNavigate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadThenNavigate.swift; sourceTree = "<group>"; };
 		879153D72A6EA47F002E762E /* CaseStudy_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaseStudy_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		879153DE2A6EA480002E762E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		879154152A6EA51E002E762E /* CaseStudy-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CaseStudy-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				8791551D2A72BFE0002E762E /* NavigationDemo.swift */,
+				5B1675C12A7A350A0065F33B /* LoadThenNavigate.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				879154A42A6EA6F3002E762E /* AnimationView.swift in Sources */,
 				8791549E2A6EA6F3002E762E /* FactClient.swift in Sources */,
 				879154A52A6EA6F3002E762E /* Counter.swift in Sources */,
+				5B1675C22A7A350A0065F33B /* LoadThenNavigate.swift in Sources */,
 				879155162A6EA8EF002E762E /* WebSocketClient.swift in Sources */,
 				879154A62A6EA6F3002E762E /* AlertAndConfirmationDialogView.swift in Sources */,
 				879154A12A6EA6F3002E762E /* Bindings.swift in Sources */,
