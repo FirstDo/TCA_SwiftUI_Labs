@@ -54,13 +54,36 @@ struct LoadThenNavigate: ReducerProtocol {
 }
 
 struct LoadThenNavigateView: View {
+    let store: StoreOf<LoadThenNavigate>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct LoadThenNavigateView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoadThenNavigateView()
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            Form {
+                NavigationLink(
+                    destination: IfLetStore(store.scope(
+                        state: \.optionalCounter,
+                        action: LoadThenNavigate.Action.optionalCounter)) {
+                            CounterView(store: $0)
+                        }
+                    ,
+                    isActive: viewStore.binding(
+                        get: \.isNavigationActive,
+                        send: LoadThenNavigate.Action.setNavigation(isActive:)
+                    )
+                ) {
+                    HStack {
+                        Text("Load optional counter")
+                        if viewStore.isIndicator {
+                            Spacer()
+                            ProgressView()
+                        }
+                    }
+                }
+            }
+            .onDisappear {
+                viewStore.send(.onDisappear)
+            }
+        }
+        .navigationTitle("Load then navigate")
     }
 }

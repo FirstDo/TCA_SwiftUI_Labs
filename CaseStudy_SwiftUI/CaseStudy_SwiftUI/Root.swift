@@ -19,6 +19,7 @@ struct Root: ReducerProtocol {
         var effectWebSocket = WebSocket.State()
         
         var stack = NavigationDemo.State()
+        var loadThenNavigate = LoadThenNavigate.State()
     }
     
     enum Action {
@@ -40,6 +41,7 @@ struct Root: ReducerProtocol {
         case effectWebSocket(WebSocket.Action)
         
         case stack(NavigationDemo.Action)
+        case loadThenNavigate(LoadThenNavigate.Action)
         
     }
     
@@ -72,8 +74,7 @@ struct Root: ReducerProtocol {
         Scope(state: \.effectTimers, action: /Action.effectTimer) { Timers() }
         Scope(state: \.effectWebSocket, action: /Action.effectWebSocket) { WebSocket() }
         
-        Scope(state: \.stack, action: /Action.stack) {
-            NavigationDemo()
-        }
+        Scope(state: \.stack, action: /Action.stack) { NavigationDemo() }
+        Scope(state: \.loadThenNavigate, action: /Action.loadThenNavigate) { LoadThenNavigate() }
     }
 }
