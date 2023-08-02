@@ -81,7 +81,10 @@ struct RootView: View {
         
         Section("Navigation") {
           NavigationLink("Stack") {
-            Text("Stack")
+            NavigationDemoView(store: Store(
+                initialState: .init(),
+                reducer: NavigationDemo()
+            ))
           }
           
           NavigationLink("Navigate and load data") {

@@ -82,14 +82,56 @@ struct NavigationDemo: ReducerProtocol {
 }
 
 struct NavigationDemoView: View {
+    let store: StoreOf<NavigationDemo>
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct NavigationDemoView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationDemoView()
+        NavigationStackStore(
+            self.store.scope(state: \.path, action: NavigationDemo.Action.path)
+        ) {
+            Form {
+                Section {
+                    NavigationLink(
+                        "Go to screen A",
+                        state: NavigationDemo.Path.State.screenA()
+                    )
+                    NavigationLink(
+                        "Go to screen B",
+                        state: NavigationDemo.Path.State.screenB()
+                    )
+                    NavigationLink(
+                        "Go to screen C",
+                        state: NavigationDemo.Path.State.screenC()
+                    )
+                }
+                
+                Section {
+                    Button("Go to A → B → C") {
+                        ViewStore(self.store.stateless).send(.goToABCButtonTapped)
+                    }
+                }
+            }
+        } destination: {
+            switch $0 {
+            case .screenA:
+                CaseLet(
+                    state: /NavigationDemo.Path.State.screenA,
+                    action: NavigationDemo.Path.Action.screenA,
+                    then: ScreenAView.init(store:)
+                )
+            case .screenB:
+                CaseLet(
+                    state: /NavigationDemo.Path.State.screenB,
+                    action: NavigationDemo.Path.Action.screenB,
+                    then: ScreenBView.init(store:)
+                )
+            case .screenC:
+                CaseLet(
+                    state: /NavigationDemo.Path.State.screenC,
+                    action: NavigationDemo.Path.Action.screenC,
+                    then: ScreenCView.init(store:)
+                )
+            }
+        }
+        .navigationTitle("Navigation Stack")
     }
 }
 
@@ -156,7 +198,7 @@ struct ScreenAView: View {
             Form {
                 Section {
                     HStack {
-                        Text("\(viewStore.count))")
+                        Text("\(viewStore.count)")
                         Spacer()
                         Button {
                             viewStore.send(.decrementButtonTapped)
