@@ -44,7 +44,26 @@ struct LoadThenPresentView: View {
     let store: StoreOf<LoadThenPresent>
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            Form {
+                Button {
+                    viewStore.send(.counterButtonTapped)
+                } label: {
+                    HStack {
+                        Text("Load optional counter")
+                        if viewStore.isActivityIndicatorVisable {
+                            Spacer()
+                            ProgressView()
+                        }
+                    }
+                }
+            }
+            .sheet(
+                store: store.scope(state: \.$counter, action: LoadThenPresent.Action.counter),
+                content: CounterView.init(store:)
+            )
+            .navigationTitle("Load and present")
+        }
     }
 }
 
