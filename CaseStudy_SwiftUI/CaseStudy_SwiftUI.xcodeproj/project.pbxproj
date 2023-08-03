@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B1675C22A7A350A0065F33B /* LoadThenNavigate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1675C12A7A350A0065F33B /* LoadThenNavigate.swift */; };
+		5B1675C42A7B29480065F33B /* NavigateAndLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1675C32A7B29480065F33B /* NavigateAndLoad.swift */; };
 		879153DF2A6EA480002E762E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879153DE2A6EA480002E762E /* Assets.xcassets */; };
 		879153EC2A6EA4E4002E762E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 879153EB2A6EA4E4002E762E /* ComposableArchitecture */; };
 		879154982A6EA6F3002E762E /* Effects-Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879154822A6EA6F3002E762E /* Effects-Refreshable.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		5B1675C12A7A350A0065F33B /* LoadThenNavigate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadThenNavigate.swift; sourceTree = "<group>"; };
+		5B1675C32A7B29480065F33B /* NavigateAndLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateAndLoad.swift; sourceTree = "<group>"; };
 		879153D72A6EA47F002E762E /* CaseStudy_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaseStudy_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		879153DE2A6EA480002E762E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		879154152A6EA51E002E762E /* CaseStudy-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CaseStudy-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -159,6 +161,7 @@
 			children = (
 				8791551D2A72BFE0002E762E /* NavigationDemo.swift */,
 				5B1675C12A7A350A0065F33B /* LoadThenNavigate.swift */,
+				5B1675C32A7B29480065F33B /* NavigateAndLoad.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				879154A32A6EA6F3002E762E /* SharedStateView.swift in Sources */,
 				8791549F2A6EA6F3002E762E /* TwoCounter.swift in Sources */,
 				879154A92A6EA6F3002E762E /* Root.swift in Sources */,
+				5B1675C42A7B29480065F33B /* NavigateAndLoad.swift in Sources */,
 				879154992A6EA6F3002E762E /* Effects-LongLiving.swift in Sources */,
 				879154AA2A6EA6F3002E762E /* RootView.swift in Sources */,
 				879154A22A6EA6F3002E762E /* OptionalCounterView.swift in Sources */,

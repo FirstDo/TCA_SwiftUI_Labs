@@ -20,6 +20,7 @@ struct Root: ReducerProtocol {
         
         var stack = NavigationDemo.State()
         var loadThenNavigate = LoadThenNavigate.State()
+        var navigateAndLoad = NavigateAndLoad.State()
     }
     
     enum Action {
@@ -42,6 +43,7 @@ struct Root: ReducerProtocol {
         
         case stack(NavigationDemo.Action)
         case loadThenNavigate(LoadThenNavigate.Action)
+        case naviageAndLoad(NavigateAndLoad.Action)
         
     }
     
@@ -76,5 +78,6 @@ struct Root: ReducerProtocol {
         
         Scope(state: \.stack, action: /Action.stack) { NavigationDemo() }
         Scope(state: \.loadThenNavigate, action: /Action.loadThenNavigate) { LoadThenNavigate() }
+        Scope(state: \.navigateAndLoad, action: /Action.naviageAndLoad) { NavigateAndLoad() }
     }
 }
