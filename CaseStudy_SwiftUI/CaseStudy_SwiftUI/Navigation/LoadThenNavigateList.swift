@@ -41,7 +41,7 @@ struct LoadThenNavigateList: ReducerProtocol {
             case let .setNavigation(selection: .some(navigationID)):
                 for row in state.rows {
                     state.rows[id: row.id]?.isActivityIndicatorVisible =
-                        row.id == navigationID
+                    row.id == navigationID
                 }
                 return .run { send in
                     try await clock.sleep(for: .seconds(1))
@@ -75,7 +75,34 @@ struct LoadThenNavigateListView: View {
     let store: StoreOf<LoadThenNavigateList>
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
-            
+            Form {
+                ForEach(viewStore.rows) { row in
+                    NavigationLink(
+                        destination: IfLetStore(
+                            store.scope(
+                                state: \.selection?.value,
+                                action: LoadThenNavigateList.Action.counter
+                            ),
+                            then: { CounterView(store: $0) }
+                        ),
+                        tag: row.id,
+                        selection: viewStore.binding(
+                            get: \.selection?.id,
+                            send: LoadThenNavigateList.Action.setNavigation(selection:)
+                        )
+                    ) {
+                        HStack {
+                            Text("Load optional counter that starts from \(row.count)")
+                            if row.isActivityIndicatorVisible {
+                                Spacer()
+                                ProgressView()
+                            }
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Load then navigate")
+            .onDisappear { viewStore.send(.onDisappear) }
         }
     }
 }
