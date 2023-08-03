@@ -114,7 +114,10 @@ struct RootView: View {
                     }
                     
                     NavigationLink("Sheets: Load data then present") {
-                        Text("Sheets: Load data then present")
+                        LoadThenPresentView(store: Store(
+                            initialState: .init(),
+                            reducer: LoadThenPresent()
+                        ))
                     }
                 }
                 

@@ -21,6 +21,7 @@ struct Root: ReducerProtocol {
         var stack = NavigationDemo.State()
         var loadThenNavigate = LoadThenNavigate.State()
         var navigateAndLoad = NavigateAndLoad.State()
+        var loadThenPresent = LoadThenPresent.State()
     }
     
     enum Action {
@@ -44,6 +45,7 @@ struct Root: ReducerProtocol {
         case stack(NavigationDemo.Action)
         case loadThenNavigate(LoadThenNavigate.Action)
         case naviageAndLoad(NavigateAndLoad.Action)
+        case loadThenPresent(LoadThenPresent.Action)
         
     }
     
@@ -69,6 +71,7 @@ struct Root: ReducerProtocol {
         Scope(state: \.sharedState, action: /Action.sharedState) { SharedState() }
         Scope(state: \.alertAndConfirmationDialog, action: /Action.alert) { AlertAndConfirmationDialog() }
         Scope(state: \.animations, action: /Action.animation) { Animations() }
+        
         Scope(state: \.effectBasics, action: /Action.effectBasics) { Effects_Basics() }
         Scope(state: \.effectCancellation, action: /Action.effectCancellaiton) { EffectsCancellation() }
         Scope(state: \.effectLongLiving, action: /Action.effectLongLiving) { LongLivingEffects() }
@@ -79,5 +82,6 @@ struct Root: ReducerProtocol {
         Scope(state: \.stack, action: /Action.stack) { NavigationDemo() }
         Scope(state: \.loadThenNavigate, action: /Action.loadThenNavigate) { LoadThenNavigate() }
         Scope(state: \.navigateAndLoad, action: /Action.naviageAndLoad) { NavigateAndLoad() }
+        Scope(state: \.loadThenPresent, action: /Action.loadThenPresent) { LoadThenPresent() }
     }
 }
