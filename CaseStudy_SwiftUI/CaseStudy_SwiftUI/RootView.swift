@@ -88,7 +88,10 @@ struct RootView: View {
                     }
                     
                     NavigationLink("Navigate and load data") {
-                        Text("Navigate and load data")
+                        NavigateAndLoadView(store: Store(
+                            initialState: .init(),
+                            reducer: NavigateAndLoad()
+                        ))
                     }
                     
                     NavigationLink("Load data then navigate") {
@@ -99,10 +102,7 @@ struct RootView: View {
                     }
                     
                     NavigationLink("Lists: Navigate and load data") {
-                        NavigateAndLoadView(store: Store(
-                            initialState: .init(),
-                            reducer: NavigateAndLoad()
-                        ))
+                        Text("Navigate and load List: data")
                     }
                     
                     NavigationLink("Lists: Load data then navigate") {

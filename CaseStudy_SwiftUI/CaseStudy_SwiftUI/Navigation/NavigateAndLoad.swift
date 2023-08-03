@@ -50,7 +50,25 @@ struct NavigateAndLoadView: View {
     let store: StoreOf<NavigateAndLoad>
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        WithViewStore(store, observe: { $0 }) { viewStore in
+            Form {
+                NavigationLink(
+                    destination: IfLetStore(
+                        self.store.scope(
+                            state: \.optionalCounter,
+                            action: NavigateAndLoad.Action.optionalCounter
+                        )
+                    ) {
+                        CounterView(store: $0)
+                    } else: {
+                        ProgressView()
+                    },
+                    isActive: viewStore.binding(get: \.isNavigationActive, send: NavigateAndLoad.Action.setNavigation(isActive:))) {
+                        Text("Load optional counter")
+                    }
+            }
+        }
+        .navigationTitle("Navigate and load")
     }
 }
 
