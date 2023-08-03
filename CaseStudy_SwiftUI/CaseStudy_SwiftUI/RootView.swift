@@ -109,7 +109,10 @@ struct RootView: View {
                     }
                     
                     NavigationLink("Lists: Load data then navigate") {
-                        Text("Lists: Load data then navigate")
+                        LoadThenNavigateListView(store: Store(
+                            initialState: .init(),
+                            reducer: LoadThenNavigateList()
+                        ))
                     }
                     
                     NavigationLink("Sheets: Present and load data") {

@@ -24,6 +24,7 @@ struct Root: ReducerProtocol {
         var loadThenPresent = LoadThenPresent.State()
         var presentAndLoad = PresentAndLoad.State()
         var navigateAndLoadList = NavigateAndLoadList.State()
+        var loadThenNavigateList = LoadThenNavigateList.State()
     }
     
     enum Action {
@@ -50,6 +51,7 @@ struct Root: ReducerProtocol {
         case loadThenPresent(LoadThenPresent.Action)
         case presentAndLoad(PresentAndLoad.Action)
         case navigateAndLoadList(NavigateAndLoadList.Action)
+        case loadThenNavigateList(LoadThenNavigateList.Action)
         
     }
     
@@ -89,5 +91,8 @@ struct Root: ReducerProtocol {
         Scope(state: \.loadThenPresent, action: /Action.loadThenPresent) { LoadThenPresent() }
         Scope(state: \.presentAndLoad, action: /Action.presentAndLoad) { PresentAndLoad() }
         Scope(state: \.navigateAndLoadList, action: /Action.navigateAndLoadList) { NavigateAndLoadList() }
+        Scope(state: \.loadThenNavigateList, action: /Action.loadThenNavigateList) {
+            LoadThenNavigateList()
+        }
     }
 }
