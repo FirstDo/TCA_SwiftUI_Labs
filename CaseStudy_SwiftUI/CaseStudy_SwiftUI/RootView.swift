@@ -132,7 +132,10 @@ struct RootView: View {
                 
                 Section("Higher-Order Reducers") {
                     NavigationLink("Reusable favoriting component") {
-                        Text("Reusable favoriting component")
+                        EpisodesView(store: .init(
+                            initialState: .init(),
+                            reducer: Episodes(favorite: favorite(id:isFavorite:))
+                        ))
                     }
                     
                     NavigationLink("Reusable offline download component") {

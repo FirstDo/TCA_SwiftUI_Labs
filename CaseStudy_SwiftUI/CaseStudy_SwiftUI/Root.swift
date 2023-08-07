@@ -25,6 +25,8 @@ struct Root: ReducerProtocol {
         var presentAndLoad = PresentAndLoad.State()
         var navigateAndLoadList = NavigateAndLoadList.State()
         var loadThenNavigateList = LoadThenNavigateList.State()
+        
+        var reusableFavoriting = Episodes.State()
     }
     
     enum Action {
@@ -52,6 +54,7 @@ struct Root: ReducerProtocol {
         case presentAndLoad(PresentAndLoad.Action)
         case navigateAndLoadList(NavigateAndLoadList.Action)
         case loadThenNavigateList(LoadThenNavigateList.Action)
+        case reusableFavoriting(Episodes.Action)
         
     }
     
@@ -91,8 +94,8 @@ struct Root: ReducerProtocol {
         Scope(state: \.loadThenPresent, action: /Action.loadThenPresent) { LoadThenPresent() }
         Scope(state: \.presentAndLoad, action: /Action.presentAndLoad) { PresentAndLoad() }
         Scope(state: \.navigateAndLoadList, action: /Action.navigateAndLoadList) { NavigateAndLoadList() }
-        Scope(state: \.loadThenNavigateList, action: /Action.loadThenNavigateList) {
-            LoadThenNavigateList()
-        }
+        Scope(state: \.loadThenNavigateList, action: /Action.loadThenNavigateList) { LoadThenNavigateList() }
+        
+        Scope(state: \.reusableFavoriting, action: /Action.reusableFavoriting) { Episodes(favorite: favorite(id:isFavorite:)) }
     }
 }
