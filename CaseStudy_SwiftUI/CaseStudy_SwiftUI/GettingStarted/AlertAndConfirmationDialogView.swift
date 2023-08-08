@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct AlertAndConfirmationDialog: ReducerProtocol {
+struct AlertAndConfirmationDialog: Reducer {
     struct State: Equatable {
         var alert: AlertState<Action>?
         var confirmationDialog: ConfirmationDialogState<Action>?
@@ -17,7 +17,7 @@ struct AlertAndConfirmationDialog: ReducerProtocol {
         case incrementButtonTapped
     }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .alertButtonTapped:
             state.alert = AlertState(title: {
@@ -83,16 +83,7 @@ struct AlertAndConfirmationDialogView: View {
             }
         }
         .navigationTitle("Alerts & Dialogs")
-        .alert(self.store.scope(state: \.alert, action: { $0 }), dismiss: .alertDismissed)
-        .confirmationDialog(self.store.scope(state: \.confirmationDialog, action: { $0 }), dismiss: .confirmationDialogDismissed)
-    }
-}
-
-struct AlertAndConfirmationDialogView_Previews: PreviewProvider {
-    static var previews: some View {
-        AlertAndConfirmationDialogView(store: Store(
-            initialState: AlertAndConfirmationDialog.State(),
-            reducer: AlertAndConfirmationDialog()
-        ))
+//        .alert(self.store.scope(state: \.alert, action: { $0 }), dismiss: .alertDismissed)
+//        .confirmationDialog(self.store.scope(state: \.confirmationDialog, action: { $0 }), dismiss: .confirmationDialogDismissed)
     }
 }

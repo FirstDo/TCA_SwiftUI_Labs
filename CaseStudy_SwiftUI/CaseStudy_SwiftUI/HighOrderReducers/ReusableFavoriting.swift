@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct Episodes: ReducerProtocol {
+struct Episodes: Reducer {
     struct State: Equatable {
         var episodes: IdentifiedArrayOf<Favoriting<UUID>.State> = .mocks
     }
@@ -12,7 +12,7 @@ struct Episodes: ReducerProtocol {
     
     let favorite: @Sendable (UUID, Bool) async throws -> Bool
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         Reduce { state, action in
             return .none
         }
@@ -40,13 +40,14 @@ struct EpisodesView: View {
 struct EpisodesView_Previews: PreviewProvider {
     static var previews: some View {
         EpisodesView(store: .init(
-            initialState: .init(),
-            reducer: Episodes(favorite: favorite(id:isFavorite:))
-        ))
+            initialState: .init()) {
+                Episodes(favorite: favorite(id:isFavorite:))
+            }
+        )
     }
 }
 
-struct Favoriting<ID: Hashable & Sendable>: ReducerProtocol {
+struct Favoriting<ID: Hashable & Sendable>: Reducer {
     struct State: Equatable, Identifiable {
         var alert: AlertState<Action>?
         let id: ID
@@ -66,7 +67,7 @@ struct Favoriting<ID: Hashable & Sendable>: ReducerProtocol {
         let id: AnyHashable
     }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .alertDismissed:
             state.alert = nil
@@ -112,7 +113,8 @@ struct FavoriteButton<ID: Hashable & Sendable>: View {
                         .symbolVariant(viewStore.isFavorite ? .fill : .none)
                 }
             }
-            .alert(store.scope(state: \.alert, action: { $0 }), dismiss: .alertDismissed)
+//            .alert(store: store.scope(state: \.alert, action: { $0 }))
+//            .alert(store.scope(state: \.alert, action: { $0 }), dismiss: .alertDismissed)
         }
     }
 }

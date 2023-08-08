@@ -5,7 +5,7 @@ import ComposableArchitecture
 import Then
 import SnapKit
 
-struct EffectRefreshable: ReducerProtocol {
+struct EffectRefreshable: Reducer {
     struct State: Equatable {
         var counter = Counter.State()
         var fact: String?
@@ -20,7 +20,7 @@ struct EffectRefreshable: ReducerProtocol {
     
     private enum CancelID { case factRequest }
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         Scope(state: \.counter, action: /Action.counter) {
             Counter()
         }

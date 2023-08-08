@@ -5,7 +5,7 @@ import ComposableArchitecture
 import Then
 import SnapKit
 
-struct EffectTimer: ReducerProtocol {
+struct EffectTimer: Reducer {
     struct State: Equatable {
         var isTimerActive = false
         var secondsElapsed = 0
@@ -20,7 +20,7 @@ struct EffectTimer: ReducerProtocol {
     @Dependency(\.continuousClock) var clock
     private enum CancelID { case timer }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .onDisappear:
             return .cancel(id: CancelID.timer)

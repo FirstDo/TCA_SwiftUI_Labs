@@ -6,7 +6,7 @@ import Then
 import CombineCocoa
 import SnapKit
 
-struct SharedState: ReducerProtocol {
+struct SharedState: Reducer {
   enum Tab {
     case counter, profile
   }
@@ -41,7 +41,7 @@ struct SharedState: ReducerProtocol {
     case selectTab(Tab)
   }
   
-  var body: some ReducerProtocol<State, Action> {
+  var body: some Reducer<State, Action> {
     Scope(state: \.counter, action: /Action.counter) {
       Counter()
     }
@@ -60,7 +60,7 @@ struct SharedState: ReducerProtocol {
     }
   }
   
-  struct Counter: ReducerProtocol {
+  struct Counter: Reducer {
     struct State: Equatable {
       var alert: AlertState<Action>?
       var count = 0
@@ -76,7 +76,7 @@ struct SharedState: ReducerProtocol {
       case isPrimeButtonTapped
     }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
       switch action {
       case .alertDismissed:
         state.alert = nil
@@ -108,7 +108,7 @@ struct SharedState: ReducerProtocol {
     }
   }
   
-  struct Profile: ReducerProtocol {
+  struct Profile: Reducer {
     struct State: Equatable {
       private(set) var currentTab: Tab
       private(set) var count = 0
@@ -129,7 +129,7 @@ struct SharedState: ReducerProtocol {
       case resetCounterButtonTapped
     }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
       switch action {
       case .resetCounterButtonTapped:
         state.resetCount()
@@ -218,7 +218,7 @@ class SharedStateCounterView: UIView {
   
   init(store: StoreOf<SharedState.Counter>) {
     self.store = store
-    self.viewStore = ViewStore(store)
+    self.viewStore = ViewStore(store, observe: { $0 })
     super.init(frame: .zero)
     
     setup()
@@ -320,7 +320,7 @@ class SharedStateProfileView: UIView {
   
   init(store: StoreOf<SharedState.Profile>) {
     self.store = store
-    self.viewStore = ViewStore(store)
+    self.viewStore = ViewStore(store, observe: { $0 })
     super.init(frame: .zero)
     
     setup()

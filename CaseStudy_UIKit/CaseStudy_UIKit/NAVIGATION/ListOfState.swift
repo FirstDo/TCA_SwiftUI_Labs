@@ -5,7 +5,7 @@ import ComposableArchitecture
 import Then
 import SnapKit
 
-struct CounterList: ReducerProtocol {
+struct CounterList: Reducer {
     struct State: Equatable {
         var counters: IdentifiedArrayOf<Counter.State> = [
             Counter.State(),
@@ -18,7 +18,7 @@ struct CounterList: ReducerProtocol {
         case counter(id: Counter.State.ID, action: Counter.Action)
     }
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         EmptyReducer()
             .forEach(\.counters, action: /Action.counter) {
                 Counter()

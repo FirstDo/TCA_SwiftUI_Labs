@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let vc = UINavigationController(rootViewController: TodosVC(store: Store(initialState: Todos.State(), reducer: Todos())))
+        let vc = UINavigationController(rootViewController: TodosVC(store: Store(initialState: Todos.State()) { Todos() }))
         
         window?.rootViewController = vc
         window?.makeKeyAndVisible()

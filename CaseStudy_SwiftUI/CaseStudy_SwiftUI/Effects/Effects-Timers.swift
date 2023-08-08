@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct Timers: ReducerProtocol {
+struct Timers: Reducer {
     struct State:Equatable {
         var isTimerActive = false
         var secondsElapsed = 0
@@ -16,7 +16,7 @@ struct Timers: ReducerProtocol {
     @Dependency(\.continuousClock) var clock
     enum CancelID { case timer }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .onDisappear:
             return .cancel(id: CancelID.timer)
@@ -47,6 +47,6 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(store: Store(initialState: Timers.State(), reducer: Timers()))
+        TimerView(store: Store(initialState: Timers.State()) { Timers() })
     }
 }

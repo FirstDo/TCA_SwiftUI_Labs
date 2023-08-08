@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct SharedState: ReducerProtocol {
+struct SharedState: Reducer {
     enum Tab { case counter, profile }
     
     struct State: Equatable {
@@ -34,7 +34,7 @@ struct SharedState: ReducerProtocol {
         case selectTab(Tab)
     }
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         Scope(state: \.counter, action: /Action.counter) {
             Counter()
         }
@@ -52,7 +52,7 @@ struct SharedState: ReducerProtocol {
         }
     }
     
-    struct Counter: ReducerProtocol {
+    struct Counter: Reducer {
         struct State: Equatable {
             var alert: AlertState<Action>?
             var count = 0
@@ -68,7 +68,7 @@ struct SharedState: ReducerProtocol {
             case isPrimeButtonTapped
         }
         
-        func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+        func reduce(into state: inout State, action: Action) -> Effect<Action> {
             switch action {
             case .alertDismissed:
                 state.alert = nil
@@ -98,7 +98,7 @@ struct SharedState: ReducerProtocol {
             }
         }
     }
-    struct Profile: ReducerProtocol {
+    struct Profile: Reducer {
         struct State: Equatable {
             private(set) var currentTab: Tab
             private(set) var count = 0
@@ -119,7 +119,7 @@ struct SharedState: ReducerProtocol {
             case resetCounterButtonTapped
         }
         
-        func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+        func reduce(into state: inout State, action: Action) -> Effect<Action> {
             switch action {
             case .resetCounterButtonTapped:
                 state.resetCount()
@@ -160,12 +160,6 @@ struct SharedStateView: View {
     }
 }
 
-struct SharedStateView_Previews: PreviewProvider {
-    static var previews: some View {
-        SharedStateView(store: Store(initialState: SharedState.State(), reducer: SharedState()))
-    }
-}
-
 struct SharedStateCounterView: View {
     let store: StoreOf<SharedState.Counter>
     var body: some View {
@@ -194,7 +188,7 @@ struct SharedStateCounterView: View {
             }
             .padding(.top)
             .navigationTitle("Shared State Demo")
-            .alert(store.scope(state: \.alert, action: { $0 }), dismiss: .alertDismissed)
+//            .alert(store.scope(state: \.alert, action: { $0 }), dismiss: .alertDismissed)
         }
     }
 }

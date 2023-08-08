@@ -15,7 +15,7 @@ struct NetworkManager {
     }
 }
 
-struct EffectsBasics: ReducerProtocol {
+struct EffectsBasics: Reducer {
     struct State: Equatable {
         var number = 0
         var isFlight = false
@@ -32,7 +32,7 @@ struct EffectsBasics: ReducerProtocol {
     
     private enum CancelID { case delay }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .decreaseTap:
             state.number -= 1

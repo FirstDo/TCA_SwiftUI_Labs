@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct Effects_Basics: ReducerProtocol {
+struct Effects_Basics: Reducer {
     struct State: Equatable {
         var count = 0
         var isNumberFactRequestInFlight = false
@@ -21,7 +21,7 @@ struct Effects_Basics: ReducerProtocol {
     
     private enum CancelID { case delay }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .decrementButtonTapped:
             state.count -= 1
@@ -132,8 +132,9 @@ struct Effects_BasicsView: View {
 struct Effects_BasicsView_Previews: PreviewProvider {
     static var previews: some View {
         Effects_BasicsView(store: Store(
-            initialState: Effects_Basics.State(),
-            reducer: Effects_Basics()
-        ))
+            initialState: Effects_Basics.State()) {
+                Effects_Basics()
+            }
+        )
     }
 }

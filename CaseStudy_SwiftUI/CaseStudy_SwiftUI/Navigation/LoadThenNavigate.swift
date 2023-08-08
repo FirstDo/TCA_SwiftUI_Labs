@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct LoadThenNavigate: ReducerProtocol {
+struct LoadThenNavigate: Reducer {
     struct State: Equatable {
         var optionalCounter: Counter.State?
         var isIndicator = false
@@ -20,7 +20,7 @@ struct LoadThenNavigate: ReducerProtocol {
     @Dependency(\.continuousClock) var clock
     private enum CancelID { case load }
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .onDisappear:

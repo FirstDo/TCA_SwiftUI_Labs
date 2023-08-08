@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct Bindings: ReducerProtocol {
+struct Bindings: Reducer {
     struct State: Equatable {
         var sliderValue = 5.0
         var stepCount = 10
@@ -16,7 +16,7 @@ struct Bindings: ReducerProtocol {
         case toggleChanged(isOn: Bool)
     }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case let .sliderValueChanged(value):
             state.sliderValue = value
@@ -73,11 +73,5 @@ struct BindingsView: View {
             .monospacedDigit()
             .navigationTitle("Bindings")
         }
-    }
-}
-
-struct BindingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        BindingsView(store: Store(initialState: Bindings.State(), reducer: Bindings()))
     }
 }

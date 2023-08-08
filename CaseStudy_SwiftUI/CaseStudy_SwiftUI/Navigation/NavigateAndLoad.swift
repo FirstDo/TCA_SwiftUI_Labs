@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct NavigateAndLoad: ReducerProtocol {
+struct NavigateAndLoad: Reducer {
     struct State: Equatable {
         var isNavigationActive = false
         var optionalCounter: Counter.State?
@@ -16,7 +16,7 @@ struct NavigateAndLoad: ReducerProtocol {
     @Dependency(\.continuousClock) var clock
     private enum CancelID { case load }
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .setNavigation(isActive: true):
@@ -75,8 +75,9 @@ struct NavigateAndLoadView: View {
 struct NavigateAndLoadView_Previews: PreviewProvider {
     static var previews: some View {
         NavigateAndLoadView(store: Store(
-            initialState: .init(),
-            reducer: NavigateAndLoad()
-        ))
+            initialState: .init()) {
+                NavigateAndLoad()
+            }
+        )
     }
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct OptionalCounter: ReducerProtocol {
+struct OptionalCounter: Reducer {
     struct State: Equatable {
         var optionalCounter: Counter.State?
     }
@@ -11,7 +11,7 @@ struct OptionalCounter: ReducerProtocol {
         case toggleCounterButtonTapped
     }
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         
         Reduce { state, action in
             switch action {
@@ -59,6 +59,8 @@ struct OptionalCounterView: View {
 
 struct OptionalCounterView_Previews: PreviewProvider {
     static var previews: some View {
-        OptionalCounterView(store: Store(initialState: OptionalCounter.State(), reducer: OptionalCounter()))
+        OptionalCounterView(store: Store(initialState: OptionalCounter.State()) {
+            OptionalCounter()
+        })
     }
 }

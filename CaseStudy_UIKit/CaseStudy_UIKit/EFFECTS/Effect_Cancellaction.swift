@@ -5,7 +5,7 @@ import ComposableArchitecture
 import Then
 import CombineCocoa
 
-struct EffectCancellation: ReducerProtocol {
+struct EffectCancellation: Reducer {
   private let network = NetworkManager()
   private enum CancelID {
     case factRequest
@@ -24,7 +24,7 @@ struct EffectCancellation: ReducerProtocol {
     case factResponse(TaskResult<String>)
   }
   
-  func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+  func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .cancelButtonTapped:
       state.isFactRequestInFlight = false

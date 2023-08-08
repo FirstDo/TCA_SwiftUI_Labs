@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct BindingsForm: ReducerProtocol {
+struct BindingsForm: Reducer {
     struct State: Equatable {
         @BindingState var sliderValue = 5.0
         @BindingState var stepCount = 10
@@ -14,7 +14,7 @@ struct BindingsForm: ReducerProtocol {
         case resetButtonTapped
     }
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         BindingReducer()
         Reduce { state, action in
             switch action {
@@ -38,19 +38,19 @@ struct BindingsFormView: View {
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             Form {
-                TextField("Type here", text: viewStore.binding(\.$text))
+                TextField("Type here", text: viewStore.$text)
                     .autocorrectionDisabled(true)
                     .foregroundStyle(viewStore.toggleIsOn ? .secondary : .primary)
                     .disabled(viewStore.toggleIsOn)
                 
                 Toggle(
                     "Disable other controls",
-                    isOn: viewStore.binding(\.$toggleIsOn)
+                    isOn: viewStore.$toggleIsOn
                 )
                 
                 Stepper(
                     "Max slider value: \(viewStore.stepCount)",
-                    value: viewStore.binding(\.$stepCount),
+                    value: viewStore.$stepCount,
                     in: 0...100
                 )
                 .disabled(viewStore.toggleIsOn)
@@ -58,7 +58,7 @@ struct BindingsFormView: View {
                 HStack {
                     Text("Slider value: \(Int(viewStore.sliderValue))")
                     
-                    Slider(value: viewStore.binding(\.$sliderValue), in: 0...Double(viewStore.stepCount))
+                    Slider(value: viewStore.$sliderValue, in: 0...Double(viewStore.stepCount))
                         .tint(.accentColor)
                 }
                 .disabled(viewStore.toggleIsOn)
@@ -76,6 +76,8 @@ struct BindingsFormView: View {
 
 struct BindingsFormView_Previews: PreviewProvider {
     static var previews: some View {
-        BindingsFormView(store: Store(initialState: BindingsForm.State(), reducer: BindingsForm()))
+        BindingsFormView(
+            store: Store(initialState: BindingsForm.State()) { BindingsForm() }
+        )
     }
 }

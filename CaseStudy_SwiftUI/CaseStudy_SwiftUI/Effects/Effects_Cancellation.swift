@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct EffectsCancellation: ReducerProtocol {
+struct EffectsCancellation: Reducer {
     struct State: Equatable {
         var count = 0
         var numberFact: String?
@@ -18,7 +18,7 @@ struct EffectsCancellation: ReducerProtocol {
     @Dependency(\.factClient) var factClient
     private enum CancelID { case factRequest }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case let .stepperChanged(value):
             state.isFactRequestInFlight = false
@@ -103,8 +103,9 @@ struct EffectsCancellationView: View {
 struct EffectsCancellationView_Previews: PreviewProvider {
     static var previews: some View {
         EffectsCancellationView(store: Store(
-            initialState: EffectsCancellation.State(),
-            reducer: EffectsCancellation()
-        ))
+            initialState: EffectsCancellation.State()) {
+                EffectsCancellation()
+            }
+        )
     }
 }

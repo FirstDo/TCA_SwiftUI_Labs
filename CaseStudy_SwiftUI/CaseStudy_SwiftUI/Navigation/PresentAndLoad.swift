@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct PresentAndLoad: ReducerProtocol {
+struct PresentAndLoad: Reducer {
     struct State: Equatable {
         var optionalCounter: Counter.State?
         var isSheetPresented = false
@@ -16,7 +16,7 @@ struct PresentAndLoad: ReducerProtocol {
     @Dependency(\.continuousClock) var clock
     private enum CancelID { case load }
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .optionalCounter:
@@ -69,11 +69,5 @@ struct PresentAndLoadView: View {
             }
             .navigationTitle("Present and load")
         }
-    }
-}
-
-struct PresentAndLoadView_Previews: PreviewProvider {
-    static var previews: some View {
-        PresentAndLoadView(store: Store(initialState: .init(), reducer: PresentAndLoad()))
     }
 }

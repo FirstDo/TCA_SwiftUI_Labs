@@ -4,7 +4,7 @@ import ComposableArchitecture
 import Then
 import SnapKit
 
-struct OptionalBasics: ReducerProtocol {
+struct OptionalBasics: Reducer {
   struct State: Equatable {
     var optionalCounter: Counter.State?
   }
@@ -14,7 +14,7 @@ struct OptionalBasics: ReducerProtocol {
     case toggleCounterButtonTapped
   }
   
-  var body: some ReducerProtocol<State, Action> {
+  var body: some Reducer<State, Action> {
     Reduce { state, action in
       switch action {
       case .toggleCounterButtonTapped:

@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct LoadThenPresent: ReducerProtocol {
+struct LoadThenPresent: Reducer {
     struct State: Equatable {
         @PresentationState var counter: Counter.State?
         var isActivityIndicatorVisable = false
@@ -15,7 +15,7 @@ struct LoadThenPresent: ReducerProtocol {
     
     @Dependency(\.continuousClock) var clock
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .counter:
@@ -70,8 +70,7 @@ struct LoadThenPresentView: View {
 struct LoadThenPresentView_Previews: PreviewProvider {
     static var previews: some View {
         LoadThenPresentView(store: Store(
-            initialState: .init(),
-            reducer: LoadThenPresent()
-        ))
+            initialState: .init()) { LoadThenPresent() }
+        )
     }
 }

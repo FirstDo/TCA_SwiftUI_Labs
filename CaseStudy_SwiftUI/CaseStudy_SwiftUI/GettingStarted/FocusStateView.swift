@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct Focus: ReducerProtocol {
+struct Focus: Reducer {
     struct State: Equatable {
         @BindingState var focusedField: Field?
         @BindingState var password: String = ""
@@ -17,7 +17,7 @@ struct Focus: ReducerProtocol {
         case signInButtonTapped
     }
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         BindingReducer()
         Reduce { state, action in
             switch action {
@@ -42,9 +42,9 @@ struct FocusStateView: View {
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             VStack {
-                TextField("Username", text: viewStore.binding(\.$username))
+                TextField("Username", text: viewStore.$username)
                     .focused($focusedField, equals: .username)
-                SecureField("Password", text: viewStore.binding(\.$password))
+                SecureField("Password", text: viewStore.$password)
                     .focused($focusedField, equals: .password)
                 Button("Sign In") {
                     viewStore.send(.signInButtonTapped)
@@ -52,7 +52,7 @@ struct FocusStateView: View {
                 .buttonStyle(.borderedProminent)
             }
             .textFieldStyle(.roundedBorder)
-            .synchronize(viewStore.binding(\.$focusedField), self.$focusedField)
+            .synchronize(viewStore.$focusedField, self.$focusedField)
         }
         .navigationTitle("Focus demo")
     }
@@ -66,11 +66,5 @@ private extension View {
         self
             .onChange(of: first.wrappedValue) { second.wrappedValue = $0 }
             .onChange(of: second.wrappedValue) { first.wrappedValue = $0 }
-    }
-}
-
-struct FocusStateView_Previews: PreviewProvider {
-    static var previews: some View {
-        FocusStateView(store: Store(initialState: Focus.State(), reducer: Focus()))
     }
 }

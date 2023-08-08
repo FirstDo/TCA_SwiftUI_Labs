@@ -13,7 +13,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let vc = UINavigationController(rootViewController: SearchVC(store: Store(initialState: Search.State(), reducer: Search())))
+        let vc = UINavigationController(rootViewController: SearchVC(store: Store(initialState: Search.State()) {
+            Search()
+        }))
         
         window?.rootViewController = vc
         window?.makeKeyAndVisible()

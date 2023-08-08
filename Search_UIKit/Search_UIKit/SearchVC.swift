@@ -5,7 +5,7 @@ import ComposableArchitecture
 import Then
 import SnapKit
 
-struct Search: ReducerProtocol {
+struct Search: Reducer {
     struct State: Equatable {
         var results: [GeocodingSearch.Result] = []
         var resultForecastRequestInFlight: GeocodingSearch.Result?
@@ -36,7 +36,7 @@ struct Search: ReducerProtocol {
     @Dependency(\.weatherClient) var weatherClient
     private enum CancelID { case location, weather }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .forecastResponse(_, .failure):
             state.weather = nil

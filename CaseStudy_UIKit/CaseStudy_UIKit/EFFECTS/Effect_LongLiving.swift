@@ -6,7 +6,7 @@ import ComposableArchitecture
 import CombineCocoa
 import Then
 
-struct EffectLongLiving: ReducerProtocol {
+struct EffectLongLiving: Reducer {
     struct State: Equatable {
         var screenCount = 0
     }
@@ -18,7 +18,7 @@ struct EffectLongLiving: ReducerProtocol {
     
     @Dependency(\.screenshots) var screenshots
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .task:
             return .run { send in

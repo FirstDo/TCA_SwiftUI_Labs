@@ -18,124 +18,79 @@ struct RootView: View {
                         BindingsView(store: store.scope(state: \.bindings, action: Root.Action.bindings))
                     }
                     NavigationLink("Form bindings") {
-                        BindingsFormView(store: Store(initialState: BindingsForm.State(), reducer: BindingsForm()))
+                        BindingsFormView(store: store.scope(state: \.bindingsForm, action: Root.Action.bindingsForm))
                     }
                     NavigationLink("Optional State") {
-                        OptionalCounterView(store: Store(initialState: OptionalCounter.State(), reducer: OptionalCounter()))
+                        OptionalCounterView(store: store.scope(state: \.optionalCounter, action: Root.Action.optionalCounter))
                     }
                     NavigationLink("Shared State") {
-                        SharedStateView(store: Store(initialState: SharedState.State(), reducer: SharedState()))
+                        SharedStateView(store: store.scope(state: \.sharedState, action: Root.Action.sharedState))
                     }
                     NavigationLink("Alerts and Confirmation Dialogs") {
-                        AlertAndConfirmationDialogView(store: Store(
-                            initialState: AlertAndConfirmationDialog.State(),
-                            reducer: AlertAndConfirmationDialog()
-                        ))
+                        AlertAndConfirmationDialogView(store: store.scope(state: \.alertAndConfirmationDialog, action: Root.Action.alert))
                     }
                     NavigationLink("Focus State") {
-                        FocusStateView(store: Store(initialState: Focus.State(), reducer: Focus()))
+                        FocusStateView(store: store.scope(state: \.focus, action: Root.Action.focus))
                     }
                     NavigationLink("Animations") {
-                        AnimationView(store: Store(initialState: Animations.State(), reducer: Animations()))
+                        AnimationView(store: store.scope(state: \.animations, action: Root.Action.animation))
                     }
                 }
-                
+
                 Section("Effects") {
-                    NavigationLink("Basics") {
-                        Effects_BasicsView(store: Store(
-                            initialState: Effects_Basics.State(),
-                            reducer: Effects_Basics()
-                        ))
+                    NavigationLink("Basics!") {
+                        Effects_BasicsView(store: store.scope(state: \.effectBasics, action: Root.Action.effectBasics))
                     }
                     NavigationLink("Cancellation") {
-                        EffectsCancellationView(store: Store(
-                            initialState: EffectsCancellation.State(),
-                            reducer: EffectsCancellation()
-                        ))
+                        EffectsCancellationView(store: store.scope(state: \.effectCancellation, action: Root.Action.effectCancellaiton))
                     }
                     NavigationLink("Long-living effects") {
-                        LongLivingEffectsView(store: Store(
-                            initialState: LongLivingEffects.State(),
-                            reducer: LongLivingEffects()
-                        ))
+                        LongLivingEffectsView(store: store.scope(state: \.effectLongLiving, action: Root.Action.effectLongLiving))
                     }
                     NavigationLink("Refreshable") {
-                        RefreshableView(store: Store(
-                            initialState: Refreshable.State(),
-                            reducer: Refreshable()
-                        ))
+                        RefreshableView(store: store.scope(state: \.effectRefreshable, action: Root.Action.effectRefreshable))
                     }
                     NavigationLink("Timers") {
-                        TimerView(store: Store(
-                            initialState: Timers.State(),
-                            reducer: Timers()
-                        ))
+                        TimerView(store: store.scope(state: \.effectTimers, action: Root.Action.effectTimer))
                     }
                     NavigationLink("Web socket") {
-                        WebSocketView(store: Store(
-                            initialState: WebSocket.State(),
-                            reducer: WebSocket()
-                        ))
+                        WebSocketView(store: store.scope(state: \.effectWebSocket, action: Root.Action.effectWebSocket))
                     }
                 }
-                
+              
                 Section("Navigation") {
                     NavigationLink("Stack") {
-                        NavigationDemoView(store: Store(
-                            initialState: .init(),
-                            reducer: NavigationDemo()
-                        ))
+                        NavigationDemoView(store: store.scope(state: \.stack, action: Root.Action.stack))
                     }
                     
                     NavigationLink("Navigate and load data") {
-                        NavigateAndLoadView(store: Store(
-                            initialState: .init(),
-                            reducer: NavigateAndLoad()
-                        ))
+                        NavigateAndLoadView(store: store.scope(state: \.navigateAndLoad, action: Root.Action.naviageAndLoad))
                     }
                     
                     NavigationLink("Load data then navigate") {
-                        LoadThenNavigateView(store: Store(
-                            initialState: .init(),
-                            reducer: LoadThenNavigate()
-                        ))
+                        LoadThenNavigateView(store: store.scope(state: \.loadThenNavigate, action: Root.Action.loadThenNavigate))
                     }
                     
                     NavigationLink("Lists: Navigate and load data") {
-                        NavigateAndLoadListView(store: Store(
-                            initialState: .init(),
-                            reducer: NavigateAndLoadList()
-                        ))
+                        NavigateAndLoadListView(store: store.scope(state: \.navigateAndLoadList, action: Root.Action.navigateAndLoadList))
                     }
                     
                     NavigationLink("Lists: Load data then navigate") {
-                        LoadThenNavigateListView(store: Store(
-                            initialState: .init(),
-                            reducer: LoadThenNavigateList()
-                        ))
+                        LoadThenNavigateListView(store: store.scope(state: \.loadThenNavigateList, action: Root.Action.loadThenNavigateList))
                     }
                     
                     NavigationLink("Sheets: Present and load data") {
-                        PresentAndLoadView(store: Store(
-                            initialState: .init(),
-                            reducer: PresentAndLoad()
-                        ))
+                        PresentAndLoadView(store: store.scope(state: \.presentAndLoad, action: Root.Action.presentAndLoad))
                     }
                     
                     NavigationLink("Sheets: Load data then present") {
-                        LoadThenPresentView(store: Store(
-                            initialState: .init(),
-                            reducer: LoadThenPresent()
-                        ))
+                        LoadThenPresentView(store: store.scope(state: \.loadThenPresent, action: Root.Action.loadThenPresent))
                     }
                 }
                 
                 Section("Higher-Order Reducers") {
                     NavigationLink("Reusable favoriting component") {
-                        EpisodesView(store: .init(
-                            initialState: .init(),
-                            reducer: Episodes(favorite: favorite(id:isFavorite:))
-                        ))
+                        EpisodesView(store: store.scope(state: \.reusableFavoriting, action: Root.Action.reusableFavoriting))
                     }
                     
                     NavigationLink("Reusable offline download component") {
@@ -160,13 +115,3 @@ struct RootView: View {
         }
     }
 }
-
-struct RootView_Previews: PreviewProvider {
-    static var previews: some View {
-        RootView(store: Store(
-            initialState: Root.State(),
-            reducer: Root()
-        ))
-    }
-}
-

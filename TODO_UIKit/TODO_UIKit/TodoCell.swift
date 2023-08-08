@@ -6,7 +6,7 @@ import ComposableArchitecture
 import Then
 import SnapKit
 
-struct Todo: ReducerProtocol {
+struct Todo: Reducer {
     struct State: Equatable, Identifiable, Hashable {
         let id: UUID
         var description: String? = "Untitled Todo"
@@ -18,7 +18,7 @@ struct Todo: ReducerProtocol {
         case textFieldChanged(String?)
     }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .checkBoxToggled:
             state.isComplete.toggle()
@@ -85,7 +85,7 @@ final class TodoCell: UITableViewCell {
     
     func bind(store: StoreOf<Todo>) {
         self.store = store
-        self.viewStore = ViewStore(store)
+        self.viewStore = ViewStore(store, observe: { $0 })
         
         button.tapPublisher
             .sink { [unowned self] _ in

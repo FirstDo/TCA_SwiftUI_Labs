@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct TwoCounter: ReducerProtocol {
+struct TwoCounter: Reducer {
     struct State: Equatable {
         var counter1 = Counter.State()
         var counter2 = Counter.State()
@@ -12,7 +12,7 @@ struct TwoCounter: ReducerProtocol {
         case counter2(Counter.Action)
     }
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         Scope(state: \.counter1, action: /Action.counter1) {
             Counter()
         }
@@ -41,11 +41,5 @@ struct TwoCounterView: View {
         }
         .buttonStyle(.borderless)
         .navigationTitle("Two Counters")
-    }
-}
-
-struct TwoCounterView_Previews: PreviewProvider {
-    static var previews: some View {
-        TwoCounterView(store: Store(initialState: TwoCounter.State(), reducer: TwoCounter()))
     }
 }

@@ -5,7 +5,7 @@ import CombineCocoa
 import Then
 import ComposableArchitecture
 
-struct Counter: ReducerProtocol {
+struct Counter: Reducer {
     struct State: Equatable, Identifiable {
         let id = UUID()
         var count = 0
@@ -16,7 +16,7 @@ struct Counter: ReducerProtocol {
         case tapIncrement
     }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .tapDecrement:
             state.count -= 1
@@ -43,7 +43,7 @@ class CounterView: UIView {
     }
     
     init(store: StoreOf<Counter>) {
-        self.viewStore = ViewStore(store)
+        self.viewStore = ViewStore(store, observe: { $0 })
         super.init(frame: .zero)
         
         setup()

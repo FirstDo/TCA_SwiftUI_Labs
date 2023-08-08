@@ -1,6 +1,6 @@
 import ComposableArchitecture
 
-struct Root: ReducerProtocol {
+struct Root: Reducer {
     struct State: Equatable {
         var counter = Counter.State()
         var twoCounter = TwoCounter.State()
@@ -9,6 +9,7 @@ struct Root: ReducerProtocol {
         var optionalCounter = OptionalCounter.State()
         var sharedState = SharedState.State()
         var alertAndConfirmationDialog = AlertAndConfirmationDialog.State()
+        var focus = Focus.State()
         var animations = Animations.State()
         
         var effectBasics = Effects_Basics.State()
@@ -38,6 +39,7 @@ struct Root: ReducerProtocol {
         case optionalCounter(OptionalCounter.Action)
         case sharedState(SharedState.Action)
         case alert(AlertAndConfirmationDialog.Action)
+        case focus(Focus.Action)
         case animation(Animations.Action)
         
         case effectBasics(Effects_Basics.Action)
@@ -60,7 +62,7 @@ struct Root: ReducerProtocol {
     
     @Dependency(\.continuousClock) var clock
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .onAppear:
@@ -79,6 +81,7 @@ struct Root: ReducerProtocol {
         Scope(state: \.optionalCounter, action: /Action.optionalCounter) { OptionalCounter() }
         Scope(state: \.sharedState, action: /Action.sharedState) { SharedState() }
         Scope(state: \.alertAndConfirmationDialog, action: /Action.alert) { AlertAndConfirmationDialog() }
+        Scope(state: \.focus, action: /Action.focus) { Focus() }
         Scope(state: \.animations, action: /Action.animation) { Animations() }
         
         Scope(state: \.effectBasics, action: /Action.effectBasics) { Effects_Basics() }

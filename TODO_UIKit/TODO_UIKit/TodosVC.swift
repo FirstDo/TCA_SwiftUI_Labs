@@ -23,7 +23,7 @@ enum Filter: String, CaseIterable {
     }
 }
 
-struct Todos: ReducerProtocol {
+struct Todos: Reducer {
     struct State: Equatable {
         var isEditMode: Bool = false
         var filter: Filter = .all
@@ -65,7 +65,7 @@ struct Todos: ReducerProtocol {
     @Dependency(\.uuid) var uuid
     private enum CancelID { case todoCompletion }
     
-    var body: some ReducerProtocol<State, Action> {
+    var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .addTodoButtonTapped:
@@ -92,9 +92,9 @@ struct Todos: ReducerProtocol {
             case let .move(source, destination):
                 state.todos.swapAt(source, destination)
                 
-                return .task {
+                return .run { send in
                     try await self.clock.sleep(for: .milliseconds(100))
-                    return .sortCompletedTodos
+                    await send(.sortCompletedTodos)
                 }
                 
             case .sortCompletedTodos:
@@ -227,7 +227,7 @@ private final class DataSource: UITableViewDiffableDataSource<Int, UUID> {
         cellProvider: @escaping UITableViewDiffableDataSource<Int, UUID>.CellProvider
     ) {
         self.store = store
-        self.viewStore = ViewStore(store)
+        self.viewStore = ViewStore(store, observe: { $0 })
         super.init(tableView: tableView, cellProvider: cellProvider)
     }
     

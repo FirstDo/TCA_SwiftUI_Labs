@@ -4,15 +4,15 @@ import Combine
 import ComposableArchitecture
 import SnapKit
 
-class BaseVC<Reducer: ReducerProtocol>: UIViewController where Reducer.State: Equatable  {
+class BaseVC<R: Reducer>: UIViewController where R.State: Equatable  {
     
-    var store: StoreOf<Reducer>
-    var viewStore: ViewStoreOf<Reducer>
+    var store: StoreOf<R>
+    var viewStore: ViewStoreOf<R>
     var cancelBag = Set<AnyCancellable>()
     
-    init(store: StoreOf<Reducer>) {
+    init(store: StoreOf<R>) {
         self.store = store
-        self.viewStore = ViewStore(store)
+        self.viewStore = ViewStore(store, observe: { $0 })
         super.init(nibName: nil, bundle: nil)
     }
     

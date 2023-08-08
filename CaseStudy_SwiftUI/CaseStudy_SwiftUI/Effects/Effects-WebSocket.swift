@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct WebSocket: ReducerProtocol {
+struct WebSocket: Reducer {
   struct State: Equatable {
     var alert: AlertState<Action>?
     var connectivityState = ConnectivityState.disconnected
@@ -28,7 +28,7 @@ struct WebSocket: ReducerProtocol {
   @Dependency(\.continuousClock) var clock
   @Dependency(\.webSocket) var webSocket
   
-  func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+  func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .alertDismissed:
       state.alert = nil
@@ -132,7 +132,7 @@ struct WebSocketView: View {
               ? "Connect"
               : "Conecting..."
             ) {
-              viewStore.send(.connectButtonTapped)
+              store.send(.connectButtonTapped)
             }
             .buttonStyle(.bordered)
             .tint(viewStore.connectivityState == .connected ? .red : .green)
@@ -147,7 +147,7 @@ struct WebSocketView: View {
               .textFieldStyle(.roundedBorder)
               
               Button("Send") {
-                viewStore.send(.sendButtonTapped)
+                  store.send(.sendButtonTapped)
               }
               .buttonStyle(.borderless)
             }
@@ -162,14 +162,8 @@ struct WebSocketView: View {
           Text("Received messages")
         }
       }
-      .alert(store.scope(state: \.alert, action: { $0 }), dismiss: .alertDismissed)
+//      .alert(store.scope(state: \.alert, action: { $0 }), dismiss: .alertDismissed)
       .navigationTitle("Web Socket")
     }
-  }
-}
-
-struct WebSocketView_Previews: PreviewProvider {
-  static var previews: some View {
-    WebSocketView(store: Store(initialState: WebSocket.State(), reducer: WebSocket()))
   }
 }

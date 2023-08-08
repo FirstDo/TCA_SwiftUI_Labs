@@ -29,64 +29,54 @@ struct Item: Hashable {
         switch type {
         case .basics:
             return CounterVC(store: Store(
-                initialState: Counter.State(),reducer: Counter()
-            ))
+                initialState: Counter.State()) { Counter() }
+            )
         case .combiningReducers:
             return TwoCounterVC(store: Store(
-                initialState: TwoCounter.State(), reducer: TwoCounter()
-            ))
+                initialState: TwoCounter.State()) { TwoCounter() }
+            )
         case .Bindings:
             return BindingsVC(store: Store(
-                initialState: Bindings.State(), reducer
-                : Bindings()
-            ))
+                initialState: Bindings.State()) { Bindings() }
+            )
         case .OptionalState:
           return OptionalVC(store: Store(
-            initialState: OptionalBasics.State(),
-            reducer: OptionalBasics()
-          ))
+            initialState: OptionalBasics.State()) { OptionalBasics() }
+          )
         case .SharedState:
             return SharedVC(store: Store(
-              initialState: SharedState.State(),
-              reducer: SharedState()
-            ))
+                initialState: SharedState.State()) { SharedState() }
+            )
         case .Effects_Basics:
             return EffectsBasicsVC(store: Store(
-                initialState: EffectsBasics.State(),
-                reducer: EffectsBasics()
-            ))
+                initialState: EffectsBasics.State()) { EffectsBasics() }
+            )
         case .Effects_Cancellation:
             return EffectCancellactionVC(store: Store(
-              initialState: EffectCancellation.State(),
-              reducer: EffectCancellation()
-            ))
+                initialState: EffectCancellation.State()) { EffectCancellation() }
+            )
         case .Effects_LongLivingEffects:
             return EffectLongLivingVC(store: Store(
-                initialState: EffectLongLiving.State(),
-                reducer: EffectLongLiving()
-            ))
+                initialState: EffectLongLiving.State()) { EffectLongLiving() }
+            )
         case .Effects_Refreshable:
             return EffectRefreshableVC(store: Store(
-                initialState: EffectRefreshable.State(),
-                reducer: EffectRefreshable()
-            ))
+                initialState: EffectRefreshable.State()) { EffectRefreshable() }
+            )
         case .Effects_Timers:
             return EffectTimerVC(store: Store(
-                initialState: EffectTimer.State(),
-                reducer: EffectTimer()
-            ))
+                initialState: EffectTimer.State()) { EffectTimer() }
+            )
         case .Effects_WebSocket:
             return UIViewController()
         case .LoadThenNavigate:
             return LoadAndNavigateVC(store: Store(
-                initialState: LoadAndNavigate.State(),
-                reducer: LoadAndNavigate()
-            ))
+                initialState: LoadAndNavigate.State()) { LoadAndNavigate() }
+            )
         case .ListsOfState:
             return CounterListVC(store: Store(
-                initialState: CounterList.State(),
-                reducer: CounterList()
-            ))
+                initialState: CounterList.State()) { CounterList() }
+            )
         }
     }
 }

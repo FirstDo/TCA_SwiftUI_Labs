@@ -2,7 +2,7 @@ import SwiftUI
 
 import ComposableArchitecture
 
-struct Refreshable: ReducerProtocol {
+struct Refreshable: Reducer {
     struct State: Equatable {
         var count = 0
         var fact: String?
@@ -19,7 +19,7 @@ struct Refreshable: ReducerProtocol {
     @Dependency(\.factClient) var factClient
     enum CancelID { case factRequest }
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .cancelButtonTapped:
             return .cancel(id: CancelID.factRequest)
@@ -97,14 +97,4 @@ struct RefreshableView: View {
             }
         }
     }
-}
-
-struct RefreshableView_Preview: PreviewProvider {
-    static var previews: some View {
-        RefreshableView(store: Store(
-            initialState: Refreshable.State(),
-            reducer: Refreshable()
-        ))
-    }
-
 }

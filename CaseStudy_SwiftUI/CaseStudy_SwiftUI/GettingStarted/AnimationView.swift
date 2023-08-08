@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct Animations: ReducerProtocol {
+struct Animations: Reducer {
     struct State: Equatable {
         var alert: AlertState<Action>?
         var circleCenter: CGPoint?
@@ -21,7 +21,7 @@ struct Animations: ReducerProtocol {
     
     @Dependency(\.continuousClock) var clock
     
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> Effect<Action> {
         enum CancelID { case rainbow }
         
         switch action {
@@ -117,7 +117,7 @@ struct AnimationView: View {
                 .buttonStyle(.borderedProminent)
                 .padding([.horizontal, .bottom])
             }
-            .alert(store.scope(state: \.alert, action: { $0 }), dismiss: .alertDismissed)
+//            .alert(store.scope(state: \.alert, action: { $0 }), dismiss: .alertDismissed)
             .navigationBarTitleDisplayMode(.inline)
         }
     }

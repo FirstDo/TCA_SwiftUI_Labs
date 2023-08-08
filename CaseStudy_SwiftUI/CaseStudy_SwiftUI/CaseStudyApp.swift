@@ -5,7 +5,7 @@ import ComposableArchitecture
 struct CaseStudyApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView(store: Store(initialState: Root.State(), reducer: Root()))
+            RootView(store: Store(initialState: Root.State()) { Root() } )
         }
     }
 }
