@@ -13,7 +13,19 @@
 		5B79997F2A84A21800BC3BDA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B79997E2A84A21800BC3BDA /* Preview Assets.xcassets */; };
 		5B7999872A84A25000BC3BDA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7999862A84A25000BC3BDA /* ComposableArchitecture */; };
 		5B79998A2A84A38A00BC3BDA /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7999892A84A38A00BC3BDA /* CounterFeature.swift */; };
+		5B7999932A84B43A00BC3BDA /* ComposableTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7999922A84B43A00BC3BDA /* ComposableTutorialTests.swift */; };
+		5B9501642A84BCE1006B4874 /* NumberFactClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9501632A84BCE1006B4874 /* NumberFactClient.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B7999942A84B43A00BC3BDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B79996C2A84A21600BC3BDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B7999732A84A21600BC3BDA;
+			remoteInfo = ComposableTutorial;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5B7999742A84A21600BC3BDA /* ComposableTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComposableTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,6 +35,9 @@
 		5B79997E2A84A21800BC3BDA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5B7999892A84A38A00BC3BDA /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 		5B79998B2A84B20E00BC3BDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5B7999902A84B43A00BC3BDA /* ComposableTutorialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComposableTutorialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B7999922A84B43A00BC3BDA /* ComposableTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableTutorialTests.swift; sourceTree = "<group>"; };
+		5B9501632A84BCE1006B4874 /* NumberFactClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +49,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5B79998D2A84B43A00BC3BDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -41,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				5B7999762A84A21600BC3BDA /* ComposableTutorial */,
+				5B7999912A84B43A00BC3BDA /* ComposableTutorialTests */,
 				5B7999752A84A21600BC3BDA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				5B7999742A84A21600BC3BDA /* ComposableTutorial.app */,
+				5B7999902A84B43A00BC3BDA /* ComposableTutorialTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +85,7 @@
 				5B7999772A84A21600BC3BDA /* MyApp.swift */,
 				5B79997B2A84A21800BC3BDA /* Assets.xcassets */,
 				5B79997D2A84A21800BC3BDA /* Preview Content */,
+				5B9501632A84BCE1006B4874 /* NumberFactClient.swift */,
 			);
 			path = ComposableTutorial;
 			sourceTree = "<group>";
@@ -80,6 +105,14 @@
 				5B7999892A84A38A00BC3BDA /* CounterFeature.swift */,
 			);
 			path = Counter;
+			sourceTree = "<group>";
+		};
+		5B7999912A84B43A00BC3BDA /* ComposableTutorialTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B7999922A84B43A00BC3BDA /* ComposableTutorialTests.swift */,
+			);
+			path = ComposableTutorialTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,6 +138,24 @@
 			productReference = 5B7999742A84A21600BC3BDA /* ComposableTutorial.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5B79998F2A84B43A00BC3BDA /* ComposableTutorialTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B7999962A84B43A00BC3BDA /* Build configuration list for PBXNativeTarget "ComposableTutorialTests" */;
+			buildPhases = (
+				5B79998C2A84B43A00BC3BDA /* Sources */,
+				5B79998D2A84B43A00BC3BDA /* Frameworks */,
+				5B79998E2A84B43A00BC3BDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B7999952A84B43A00BC3BDA /* PBXTargetDependency */,
+			);
+			name = ComposableTutorialTests;
+			productName = ComposableTutorialTests;
+			productReference = 5B7999902A84B43A00BC3BDA /* ComposableTutorialTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -117,6 +168,10 @@
 				TargetAttributes = {
 					5B7999732A84A21600BC3BDA = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					5B79998F2A84B43A00BC3BDA = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 5B7999732A84A21600BC3BDA;
 					};
 				};
 			};
@@ -137,6 +192,7 @@
 			projectRoot = "";
 			targets = (
 				5B7999732A84A21600BC3BDA /* ComposableTutorial */,
+				5B79998F2A84B43A00BC3BDA /* ComposableTutorialTests */,
 			);
 		};
 /* End PBXProject section */
@@ -151,6 +207,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5B79998E2A84B43A00BC3BDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -161,10 +224,27 @@
 				5B79997A2A84A21600BC3BDA /* ContentView.swift in Sources */,
 				5B79998A2A84A38A00BC3BDA /* CounterFeature.swift in Sources */,
 				5B7999782A84A21600BC3BDA /* MyApp.swift in Sources */,
+				5B9501642A84BCE1006B4874 /* NumberFactClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B79998C2A84B43A00BC3BDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B7999932A84B43A00BC3BDA /* ComposableTutorialTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B7999952A84B43A00BC3BDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B7999732A84A21600BC3BDA /* ComposableTutorial */;
+			targetProxy = 5B7999942A84B43A00BC3BDA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5B7999802A84A21800BC3BDA /* Debug */ = {
@@ -349,6 +429,50 @@
 			};
 			name = Release;
 		};
+		5B7999972A84B43A00BC3BDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 56M5N9M2PX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doyeonKim97.ComposableTutorialTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ComposableTutorial.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ComposableTutorial";
+			};
+			name = Debug;
+		};
+		5B7999982A84B43A00BC3BDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 56M5N9M2PX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.doyeonKim97.ComposableTutorialTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ComposableTutorial.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ComposableTutorial";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -366,6 +490,15 @@
 			buildConfigurations = (
 				5B7999832A84A21800BC3BDA /* Debug */,
 				5B7999842A84A21800BC3BDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B7999962A84B43A00BC3BDA /* Build configuration list for PBXNativeTarget "ComposableTutorialTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B7999972A84B43A00BC3BDA /* Debug */,
+				5B7999982A84B43A00BC3BDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
