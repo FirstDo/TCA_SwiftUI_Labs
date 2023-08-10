@@ -25,6 +25,23 @@ struct CounterView: View {
                 }
                 .roundBackground()
             }
+            Button(viewStore.isTimerRunning ? "Stop timer": "Start Timer") {
+                store.send(.toggleTimerButtonTapped)
+            }
+            .roundBackground()
+            
+            Button("Fact") {
+                store.send(.factButtonTapped)
+            }
+            
+            if viewStore.isLoading {
+                ProgressView()
+            } else if let fact = viewStore.fact {
+                Text(fact)
+                    .font(.largeTitle)
+                    .multilineTextAlignment(.center)
+                    .padding()
+            }
         }
     }
 }
