@@ -14,7 +14,18 @@ struct ContactsView: View {
             WithViewStore(self.store, observe: \.contacts) { viewStore in
                 List {
                     ForEach(viewStore.state) { contact in
-                        Text(contact.name)
+                        HStack {
+                            Text(contact.name)
+                            Spacer()
+                            Button {
+                                viewStore.send(.deleteButtonTapped(id: contact.id))
+                            } label: {
+                                Image(systemName: "trash")
+                                    .foregroundColor(.red)
+                            }
+
+                        }
+                        
                     }
                 }
                 .navigationTitle("Contacts")
@@ -31,14 +42,21 @@ struct ContactsView: View {
         }
         .sheet(
             store: self.store.scope(
-                state: \.$addContact,
-                action: { .addContact($0) }
-            )
+                state: \.$destionation,
+                action: { .destination($0) }
+            ),
+            state: /ContactsFeature.Destination.State.addContact,
+            action: ContactsFeature.Destination.Action.addContact
         ) { contactStore in
             NavigationStack {
                 AddContactView(store: contactStore)
             }
         }
+        .alert(
+            store: self.store.scope(state: \.$destionation, action: { .destination($0) }),
+            state: /ContactsFeature.Destination.State.alert,
+            action: ContactsFeature.Destination.Action.alert
+        )
     }
 }
 
