@@ -7,10 +7,15 @@ struct MyApp: App {
         CounterFeature()
             ._printChanges()
     }
+    static let store2 = Store(initialState: ContactsFeature.State()) {
+        ContactsFeature()
+            ._printChanges()
+    }
     
     var body: some Scene {
         WindowGroup {
-            CounterView(store: MyApp.store)
+            ContactsView(store: MyApp.store2)
+//            CounterView(store: MyApp.store)
         }
     }
 }
