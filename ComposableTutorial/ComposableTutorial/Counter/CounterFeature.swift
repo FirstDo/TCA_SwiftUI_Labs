@@ -58,7 +58,6 @@ struct CounterFeature: Reducer {
             
         case .toggleTimerButtonTapped:
             state.isTimerRunning.toggle()
-            print(state.isTimerRunning)
             
             if state.isTimerRunning {
                 return .run { send in

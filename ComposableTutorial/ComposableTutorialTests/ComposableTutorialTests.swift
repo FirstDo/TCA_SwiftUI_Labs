@@ -15,7 +15,7 @@ final class ComposableTutorialTests: XCTestCase {
             reducer: { CounterFeature() },
             withDependencies: {
                 $0.continuousClock = clock
-                $0.numberFact.fetch = { "\($0) is a good number."}
+                $0.numberFact.fetch = {"\($0) is a good number."}
             }
         )
     }
@@ -43,21 +43,20 @@ final class ComposableTutorialTests: XCTestCase {
             $0.isTimerRunning = true
         }
         
-        await clock.advance(by: .seconds(1))
+        await clock.advance(by: .seconds(3))
         
-        await store.receive(.timerTick) {
-            $0.count = 1
-        }
+        await store.receive(.timerTick) { $0.count = 1 }
+        await store.receive(.timerTick) { $0.count = 2 }
+        await store.receive(.timerTick) { $0.count = 3 }
         
         await store.send(.toggleTimerButtonTapped) {
             $0.isTimerRunning = false
         }
     }
     
-    func test_숫자팩트() async {
+    func test_숫자팩트테스트() async {
         await store.send(.factButtonTapped) {
             $0.isLoading = true
-            $0.fact = nil
         }
         
         await store.receive(.factResponse("0 is a good number."), timeout: .seconds(1)) {

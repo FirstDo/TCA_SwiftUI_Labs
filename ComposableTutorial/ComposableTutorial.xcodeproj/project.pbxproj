@@ -34,7 +34,6 @@
 		5B79997B2A84A21800BC3BDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B79997E2A84A21800BC3BDA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5B7999892A84A38A00BC3BDA /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
-		5B79998B2A84B20E00BC3BDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5B7999902A84B43A00BC3BDA /* ComposableTutorialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComposableTutorialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7999922A84B43A00BC3BDA /* ComposableTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableTutorialTests.swift; sourceTree = "<group>"; };
 		5B9501632A84BCE1006B4874 /* NumberFactClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactClient.swift; sourceTree = "<group>"; };
@@ -80,7 +79,6 @@
 		5B7999762A84A21600BC3BDA /* ComposableTutorial */ = {
 			isa = PBXGroup;
 			children = (
-				5B79998B2A84B20E00BC3BDA /* Info.plist */,
 				5B7999882A84A37200BC3BDA /* Counter */,
 				5B7999772A84A21600BC3BDA /* MyApp.swift */,
 				5B79997B2A84A21800BC3BDA /* Assets.xcassets */,
