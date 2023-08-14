@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ComposableTutorial/ComposableTutorial.xcodeproj">
+      location = "group:TCA_Coordinator_Example/TCA_Coordinator_Example.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Example/Example.xcodeproj">
+      location = "group:ComposableTutorial/ComposableTutorial.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Search_UIKit/Search_UIKit.xcodeproj">

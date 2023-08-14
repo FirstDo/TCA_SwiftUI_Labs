@@ -7,64 +7,78 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B1959162A80AEA700FC8ED5 /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1959152A80AEA700FC8ED5 /* ExampleApp.swift */; };
-		5B1959182A80AEA700FC8ED5 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1959172A80AEA700FC8ED5 /* RootView.swift */; };
-		5B19591A2A80AEA800FC8ED5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B1959192A80AEA800FC8ED5 /* Assets.xcassets */; };
-		5B19591D2A80AEA800FC8ED5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B19591C2A80AEA800FC8ED5 /* Preview Assets.xcassets */; };
-		5B7999642A80D67200BC3BDA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7999632A80D67200BC3BDA /* ComposableArchitecture */; };
+		5B7287C52A8A116C005B420C /* TCA_Coordinator_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7287C42A8A116C005B420C /* TCA_Coordinator_ExampleApp.swift */; };
+		5B7287C72A8A116C005B420C /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7287C62A8A116C005B420C /* CoordinatorView.swift */; };
+		5B7287C92A8A116F005B420C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7287C82A8A116F005B420C /* Assets.xcassets */; };
+		5B7287CC2A8A116F005B420C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7287CB2A8A116F005B420C /* Preview Assets.xcassets */; };
+		5B7287D42A8A1187005B420C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7287D32A8A1187005B420C /* ComposableArchitecture */; };
+		5B7287D72A8A11A9005B420C /* TCACoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7287D62A8A11A9005B420C /* TCACoordinators */; };
+		5B7287D92A8A11C6005B420C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7287D82A8A11C6005B420C /* Screen.swift */; };
+		5B7287DB2A8A125D005B420C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7287DA2A8A125D005B420C /* HomeView.swift */; };
+		5B7287DD2A8A1264005B420C /* NumberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7287DC2A8A1264005B420C /* NumberListView.swift */; };
+		5B7287DF2A8A1271005B420C /* NumberDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7287DE2A8A1271005B420C /* NumberDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B1959122A80AEA700FC8ED5 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B1959152A80AEA700FC8ED5 /* ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleApp.swift; sourceTree = "<group>"; };
-		5B1959172A80AEA700FC8ED5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		5B1959192A80AEA800FC8ED5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5B19591C2A80AEA800FC8ED5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5B7287C12A8A116C005B420C /* TCA_Coordinator_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCA_Coordinator_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B7287C42A8A116C005B420C /* TCA_Coordinator_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_Coordinator_ExampleApp.swift; sourceTree = "<group>"; };
+		5B7287C62A8A116C005B420C /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
+		5B7287C82A8A116F005B420C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B7287CB2A8A116F005B420C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5B7287D82A8A11C6005B420C /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		5B7287DA2A8A125D005B420C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5B7287DC2A8A1264005B420C /* NumberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberListView.swift; sourceTree = "<group>"; };
+		5B7287DE2A8A1271005B420C /* NumberDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5B19590F2A80AEA700FC8ED5 /* Frameworks */ = {
+		5B7287BE2A8A116C005B420C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B7999642A80D67200BC3BDA /* ComposableArchitecture in Frameworks */,
+				5B7287D72A8A11A9005B420C /* TCACoordinators in Frameworks */,
+				5B7287D42A8A1187005B420C /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5B1959092A80AEA700FC8ED5 = {
+		5B7287B82A8A116C005B420C = {
 			isa = PBXGroup;
 			children = (
-				5B1959142A80AEA700FC8ED5 /* Example */,
-				5B1959132A80AEA700FC8ED5 /* Products */,
+				5B7287C32A8A116C005B420C /* TCA_Coordinator_Example */,
+				5B7287C22A8A116C005B420C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5B1959132A80AEA700FC8ED5 /* Products */ = {
+		5B7287C22A8A116C005B420C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B1959122A80AEA700FC8ED5 /* Example.app */,
+				5B7287C12A8A116C005B420C /* TCA_Coordinator_Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5B1959142A80AEA700FC8ED5 /* Example */ = {
+		5B7287C32A8A116C005B420C /* TCA_Coordinator_Example */ = {
 			isa = PBXGroup;
 			children = (
-				5B1959152A80AEA700FC8ED5 /* ExampleApp.swift */,
-				5B1959172A80AEA700FC8ED5 /* RootView.swift */,
-				5B1959192A80AEA800FC8ED5 /* Assets.xcassets */,
-				5B19591B2A80AEA800FC8ED5 /* Preview Content */,
+				5B7287C42A8A116C005B420C /* TCA_Coordinator_ExampleApp.swift */,
+				5B7287C62A8A116C005B420C /* CoordinatorView.swift */,
+				5B7287D82A8A11C6005B420C /* Screen.swift */,
+				5B7287DA2A8A125D005B420C /* HomeView.swift */,
+				5B7287DC2A8A1264005B420C /* NumberListView.swift */,
+				5B7287DE2A8A1271005B420C /* NumberDetailView.swift */,
+				5B7287C82A8A116F005B420C /* Assets.xcassets */,
+				5B7287CA2A8A116F005B420C /* Preview Content */,
 			);
-			path = Example;
+			path = TCA_Coordinator_Example;
 			sourceTree = "<group>";
 		};
-		5B19591B2A80AEA800FC8ED5 /* Preview Content */ = {
+		5B7287CA2A8A116F005B420C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				5B19591C2A80AEA800FC8ED5 /* Preview Assets.xcassets */,
+				5B7287CB2A8A116F005B420C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -72,42 +86,43 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5B1959112A80AEA700FC8ED5 /* Example */ = {
+		5B7287C02A8A116C005B420C /* TCA_Coordinator_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B1959202A80AEA800FC8ED5 /* Build configuration list for PBXNativeTarget "Example" */;
+			buildConfigurationList = 5B7287CF2A8A116F005B420C /* Build configuration list for PBXNativeTarget "TCA_Coordinator_Example" */;
 			buildPhases = (
-				5B19590E2A80AEA700FC8ED5 /* Sources */,
-				5B19590F2A80AEA700FC8ED5 /* Frameworks */,
-				5B1959102A80AEA700FC8ED5 /* Resources */,
+				5B7287BD2A8A116C005B420C /* Sources */,
+				5B7287BE2A8A116C005B420C /* Frameworks */,
+				5B7287BF2A8A116C005B420C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Example;
+			name = TCA_Coordinator_Example;
 			packageProductDependencies = (
-				5B7999632A80D67200BC3BDA /* ComposableArchitecture */,
+				5B7287D32A8A1187005B420C /* ComposableArchitecture */,
+				5B7287D62A8A11A9005B420C /* TCACoordinators */,
 			);
-			productName = Example;
-			productReference = 5B1959122A80AEA700FC8ED5 /* Example.app */;
+			productName = TCA_Coordinator_Example;
+			productReference = 5B7287C12A8A116C005B420C /* TCA_Coordinator_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5B19590A2A80AEA700FC8ED5 /* Project object */ = {
+		5B7287B92A8A116C005B420C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					5B1959112A80AEA700FC8ED5 = {
+					5B7287C02A8A116C005B420C = {
 						CreatedOnToolsVersion = 14.3;
 					};
 				};
 			};
-			buildConfigurationList = 5B19590D2A80AEA700FC8ED5 /* Build configuration list for PBXProject "Example" */;
+			buildConfigurationList = 5B7287BC2A8A116C005B420C /* Build configuration list for PBXProject "TCA_Coordinator_Example" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,45 +130,50 @@
 				en,
 				Base,
 			);
-			mainGroup = 5B1959092A80AEA700FC8ED5;
+			mainGroup = 5B7287B82A8A116C005B420C;
 			packageReferences = (
-				5B7999622A80D67200BC3BDA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				5B7287D22A8A1187005B420C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				5B7287D52A8A11A8005B420C /* XCRemoteSwiftPackageReference "TCACoordinators" */,
 			);
-			productRefGroup = 5B1959132A80AEA700FC8ED5 /* Products */;
+			productRefGroup = 5B7287C22A8A116C005B420C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B1959112A80AEA700FC8ED5 /* Example */,
+				5B7287C02A8A116C005B420C /* TCA_Coordinator_Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5B1959102A80AEA700FC8ED5 /* Resources */ = {
+		5B7287BF2A8A116C005B420C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B19591D2A80AEA800FC8ED5 /* Preview Assets.xcassets in Resources */,
-				5B19591A2A80AEA800FC8ED5 /* Assets.xcassets in Resources */,
+				5B7287CC2A8A116F005B420C /* Preview Assets.xcassets in Resources */,
+				5B7287C92A8A116F005B420C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5B19590E2A80AEA700FC8ED5 /* Sources */ = {
+		5B7287BD2A8A116C005B420C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B1959182A80AEA700FC8ED5 /* RootView.swift in Sources */,
-				5B1959162A80AEA700FC8ED5 /* ExampleApp.swift in Sources */,
+				5B7287C72A8A116C005B420C /* CoordinatorView.swift in Sources */,
+				5B7287DD2A8A1264005B420C /* NumberListView.swift in Sources */,
+				5B7287DB2A8A125D005B420C /* HomeView.swift in Sources */,
+				5B7287C52A8A116C005B420C /* TCA_Coordinator_ExampleApp.swift in Sources */,
+				5B7287DF2A8A1271005B420C /* NumberDetailView.swift in Sources */,
+				5B7287D92A8A11C6005B420C /* Screen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		5B19591E2A80AEA800FC8ED5 /* Debug */ = {
+		5B7287CD2A8A116F005B420C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -203,7 +223,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -213,7 +233,7 @@
 			};
 			name = Debug;
 		};
-		5B19591F2A80AEA800FC8ED5 /* Release */ = {
+		5B7287CE2A8A116F005B420C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -257,7 +277,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -267,14 +287,14 @@
 			};
 			name = Release;
 		};
-		5B1959212A80AEA800FC8ED5 /* Debug */ = {
+		5B7287D02A8A116F005B420C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TCA_Coordinator_Example/Preview Content\"";
 				DEVELOPMENT_TEAM = 56M5N9M2PX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -289,22 +309,25 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.doyeonKim97.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.doyeonKim97.TCA-Coordinator-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		5B1959222A80AEA800FC8ED5 /* Release */ = {
+		5B7287D12A8A116F005B420C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TCA_Coordinator_Example/Preview Content\"";
 				DEVELOPMENT_TEAM = 56M5N9M2PX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -319,31 +342,34 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.doyeonKim97.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.doyeonKim97.TCA-Coordinator-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B19590D2A80AEA700FC8ED5 /* Build configuration list for PBXProject "Example" */ = {
+		5B7287BC2A8A116C005B420C /* Build configuration list for PBXProject "TCA_Coordinator_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5B19591E2A80AEA800FC8ED5 /* Debug */,
-				5B19591F2A80AEA800FC8ED5 /* Release */,
+				5B7287CD2A8A116F005B420C /* Debug */,
+				5B7287CE2A8A116F005B420C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B1959202A80AEA800FC8ED5 /* Build configuration list for PBXNativeTarget "Example" */ = {
+		5B7287CF2A8A116F005B420C /* Build configuration list for PBXNativeTarget "TCA_Coordinator_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5B1959212A80AEA800FC8ED5 /* Debug */,
-				5B1959222A80AEA800FC8ED5 /* Release */,
+				5B7287D02A8A116F005B420C /* Debug */,
+				5B7287D12A8A116F005B420C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -351,7 +377,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5B7999622A80D67200BC3BDA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		5B7287D22A8A1187005B420C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
@@ -359,15 +385,28 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		5B7287D52A8A11A8005B420C /* XCRemoteSwiftPackageReference "TCACoordinators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnpatrickmorgan/TCACoordinators";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5B7999632A80D67200BC3BDA /* ComposableArchitecture */ = {
+		5B7287D32A8A1187005B420C /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5B7999622A80D67200BC3BDA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			package = 5B7287D22A8A1187005B420C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		5B7287D62A8A11A9005B420C /* TCACoordinators */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B7287D52A8A11A8005B420C /* XCRemoteSwiftPackageReference "TCACoordinators" */;
+			productName = TCACoordinators;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 5B19590A2A80AEA700FC8ED5 /* Project object */;
+	rootObject = 5B7287B92A8A116C005B420C /* Project object */;
 }
