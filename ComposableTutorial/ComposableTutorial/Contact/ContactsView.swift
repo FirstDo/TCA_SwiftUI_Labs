@@ -3,15 +3,9 @@ import ComposableArchitecture
 
 struct ContactsView: View {
     let store: StoreOf<ContactsFeature>
-    //    @ObservedObject var viewStore: ViewStoreOf<ContactsFeature>
-    
-    init(store: StoreOf<ContactsFeature>) {
-        self.store = store
-        //        self.viewStore = ViewStore(store, observe: {$0})
-    }
     var body: some View {
         NavigationStack {
-            WithViewStore(self.store, observe: \.contacts) { viewStore in
+            WithViewStore(store, observe: \.contacts) { viewStore in
                 List {
                     ForEach(viewStore.state) { contact in
                         HStack {
@@ -23,47 +17,43 @@ struct ContactsView: View {
                                 Image(systemName: "trash")
                                     .foregroundColor(.red)
                             }
-
                         }
-                        
                     }
                 }
+                .animation(.default, value: viewStore.state)
                 .navigationTitle("Contacts")
                 .toolbar {
-                    ToolbarItem {
+                    ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             viewStore.send(.addButtonTapped)
                         } label: {
                             Image(systemName: "plus")
                         }
+                        
                     }
                 }
             }
+            .sheet(
+                store: store.scope(state: \.$destination, action: { .destination($0) }),
+                state: /ContactsFeature.Destination.State.addContact,
+                action: ContactsFeature.Destination.Action.addContact) { subStore in
+                    NavigationStack {
+                        AddContactView(store: subStore)
+                    }
+                }
+            .alert(
+                store: store.scope(state: \.$destination, action: { .destination($0) }),
+                state: /ContactsFeature.Destination.State.alert,
+                action: ContactsFeature.Destination.Action.alert
+            )
         }
-        .sheet(
-            store: self.store.scope(
-                state: \.$destionation,
-                action: { .destination($0) }
-            ),
-            state: /ContactsFeature.Destination.State.addContact,
-            action: ContactsFeature.Destination.Action.addContact
-        ) { contactStore in
-            NavigationStack {
-                AddContactView(store: contactStore)
-            }
-        }
-        .alert(
-            store: self.store.scope(state: \.$destionation, action: { .destination($0) }),
-            state: /ContactsFeature.Destination.State.alert,
-            action: ContactsFeature.Destination.Action.alert
-        )
     }
 }
 
 struct ContactsView_Previews: PreviewProvider {
     static var previews: some View {
         ContactsView(
-            store: .init(initialState: .init()) {
+            store: Store(initialState: ContactsFeature.State(contacts: Contact.dummy)) {
                 ContactsFeature()
             }
         )

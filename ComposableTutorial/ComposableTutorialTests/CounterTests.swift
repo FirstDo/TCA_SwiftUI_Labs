@@ -4,7 +4,7 @@ import ComposableArchitecture
 @testable import ComposableTutorial
 
 @MainActor
-final class ComposableTutorialTests: XCTestCase {
+final class CounterTests: XCTestCase {
     
     var store: TestStoreOf<CounterFeature>!
     let clock = TestClock()
