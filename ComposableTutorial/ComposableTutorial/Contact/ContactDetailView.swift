@@ -6,10 +6,13 @@ struct ContactDetailView: View {
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             Form {
-                
+                Button("Delete") {
+                    viewStore.send(.deleteButtonTapped)
+                }
             }
             .navigationTitle(Text(viewStore.contact.name))
         }
+        .alert(store: store.scope(state: \.$alert, action: { .alert($0)}))
     }
 }
 

@@ -4,20 +4,23 @@ import ComposableArchitecture
 struct ContactsView: View {
     let store: StoreOf<ContactsFeature>
     var body: some View {
-        NavigationStack {
+        NavigationStackStore(self.store.scope(state: \.path, action: { .path($0) })) {
             WithViewStore(store, observe: \.contacts) { viewStore in
                 List {
                     ForEach(viewStore.state) { contact in
-                        HStack {
-                            Text(contact.name)
-                            Spacer()
-                            Button {
-                                viewStore.send(.deleteButtonTapped(id: contact.id))
-                            } label: {
-                                Image(systemName: "trash")
-                                    .foregroundColor(.red)
+                        NavigationLink(state: ContactDetailFeature.State(contact: contact)) {
+                            HStack {
+                                Text(contact.name)
+                                Spacer()
+                                Button {
+                                    viewStore.send(.deleteButtonTapped(id: contact.id))
+                                } label: {
+                                    Image(systemName: "trash")
+                                        .foregroundColor(.red)
+                                }
                             }
                         }
+                        .buttonStyle(.borderless)
                     }
                 }
                 .animation(.default, value: viewStore.state)
@@ -33,20 +36,22 @@ struct ContactsView: View {
                     }
                 }
             }
-            .sheet(
-                store: store.scope(state: \.$destination, action: { .destination($0) }),
-                state: /ContactsFeature.Destination.State.addContact,
-                action: ContactsFeature.Destination.Action.addContact) { subStore in
-                    NavigationStack {
-                        AddContactView(store: subStore)
-                    }
-                }
-            .alert(
-                store: store.scope(state: \.$destination, action: { .destination($0) }),
-                state: /ContactsFeature.Destination.State.alert,
-                action: ContactsFeature.Destination.Action.alert
-            )
+        } destination: { subStore in
+            ContactDetailView(store: subStore)
         }
+        .sheet(
+            store: store.scope(state: \.$destination, action: { .destination($0) }),
+            state: /ContactsFeature.Destination.State.addContact,
+            action: ContactsFeature.Destination.Action.addContact) { subStore in
+                NavigationStack {
+                    AddContactView(store: subStore)
+                }
+            }
+        .alert(
+            store: store.scope(state: \.$destination, action: { .destination($0) }),
+            state: /ContactsFeature.Destination.State.alert,
+            action: ContactsFeature.Destination.Action.alert
+        )
     }
 }
 
