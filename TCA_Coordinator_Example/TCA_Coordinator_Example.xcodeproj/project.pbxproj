@@ -15,6 +15,7 @@
 		874AD55A2A8BB8F600C83314 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AD5592A8BB8F600C83314 /* HomeView.swift */; };
 		874AD55C2A8BB9B200C83314 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AD55B2A8BB9B200C83314 /* DetailView.swift */; };
 		874AD55E2A8BBB4300C83314 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AD55D2A8BBB4300C83314 /* Screen.swift */; };
+		874AD5602A8BBC6800C83314 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AD55F2A8BBC6800C83314 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		874AD5592A8BB8F600C83314 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		874AD55B2A8BB9B200C83314 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		874AD55D2A8BBB4300C83314 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		874AD55F2A8BBC6800C83314 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				874AD5592A8BB8F600C83314 /* HomeView.swift */,
 				874AD55B2A8BB9B200C83314 /* DetailView.swift */,
 				874AD55D2A8BBB4300C83314 /* Screen.swift */,
+				874AD55F2A8BBC6800C83314 /* Coordinator.swift */,
 				5B7287C82A8A116F005B420C /* Assets.xcassets */,
 				5B7287CA2A8A116F005B420C /* Preview Content */,
 			);
@@ -157,6 +160,7 @@
 			files = (
 				5B7287C52A8A116C005B420C /* TCA_Coordinator_ExampleApp.swift in Sources */,
 				874AD55C2A8BB9B200C83314 /* DetailView.swift in Sources */,
+				874AD5602A8BBC6800C83314 /* Coordinator.swift in Sources */,
 				874AD55A2A8BB8F600C83314 /* HomeView.swift in Sources */,
 				874AD55E2A8BBB4300C83314 /* Screen.swift in Sources */,
 			);
