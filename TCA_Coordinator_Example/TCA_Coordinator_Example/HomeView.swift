@@ -2,22 +2,34 @@ import SwiftUI
 import ComposableArchitecture
 
 struct Home: Reducer {
-    struct State: Equatable {
-        
-    }
+  struct State: Equatable {
+    var nums: [Int]
     
-    enum Action: Equatable {
-        case startTapped
+    init(nums: [Int] = Array(1...10)) {
+      self.nums = nums
     }
-    
-    func reduce(into state: inout State, action: Action) -> Effect<Action> {
-        return .none
+  }
+  
+  enum Action: Equatable {
+    case itemTapped(Int)
+  }
+  
+  func reduce(into state: inout State, action: Action) -> Effect<Action> {
+    switch action {
+    case let .itemTapped(num):
+      return .none
     }
+  }
 }
 
 struct HomeView: View {
-    let store: StoreOf<Home>
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
     }
 }
