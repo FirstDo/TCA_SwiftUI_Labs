@@ -23,13 +23,29 @@ struct Home: Reducer {
 }
 
 struct HomeView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  let store: StoreOf<Home>
+  var body: some View {
+    WithViewStore(store, observe: { $0 }) { viewStore in
+      List {
+        ForEach(viewStore.nums, id: \.self) { num in
+          Button {
+            store.send(.itemTapped(num))
+          } label: {
+            Text("\(num)")
+              .frame(maxWidth: .infinity, alignment: .leading)
+          }
+        }
+      }
     }
+  }
 }
 
 struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
+  static var previews: some View {
+    HomeView(
+      store: .init(initialState: Home.State()) {
+        Home()
+      }
+    )
+  }
 }
