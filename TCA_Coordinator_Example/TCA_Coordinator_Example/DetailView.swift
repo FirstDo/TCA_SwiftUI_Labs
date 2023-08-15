@@ -6,7 +6,7 @@ struct Detail: Reducer {
     let num: Int
   }
   
-  enum Action {
+  enum Action: Equatable {
     case backButtonTapped
   }
   
