@@ -14,7 +14,7 @@ enum Number: String {
     case hash = "#"
     case star = "*"
     
-    var alphabet: String {
+    var alphabet: String? {
         switch self {
         case .zero:
             return "+"
@@ -37,9 +37,9 @@ enum Number: String {
         case .nine:
             return "W X Y Z"
         case .hash:
-            return ""
+            return nil
         case .star:
-            return ""
+            return nil
         }
     }
 }
