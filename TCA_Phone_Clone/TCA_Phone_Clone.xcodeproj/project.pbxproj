@@ -12,8 +12,8 @@
 		5B7288A52A8CA7A3005B420C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7288A42A8CA7A3005B420C /* Assets.xcassets */; };
 		5B7288A82A8CA7A3005B420C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7288A72A8CA7A3005B420C /* Preview Assets.xcassets */; };
 		5B7288B02A8CA7D7005B420C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7288AF2A8CA7D7005B420C /* ComposableArchitecture */; };
-		5B7288B32A8CAA38005B420C /* NumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288B22A8CAA38005B420C /* NumberButton.swift */; };
 		5B7288B62A8CAAD1005B420C /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288B52A8CAAD1005B420C /* Number.swift */; };
+		87D9E3DC2A8CF82700FF1F09 /* NumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D9E3DB2A8CF82700FF1F09 /* NumberButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +22,8 @@
 		5B7288A22A8CA7A2005B420C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5B7288A42A8CA7A3005B420C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B7288A72A8CA7A3005B420C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5B7288B22A8CAA38005B420C /* NumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberButton.swift; sourceTree = "<group>"; };
 		5B7288B52A8CAAD1005B420C /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		87D9E3DB2A8CF82700FF1F09 /* NumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +77,8 @@
 		5B7288B12A8CA7E8005B420C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5B7288B22A8CAA38005B420C /* NumberButton.swift */,
 				5B7288A22A8CA7A2005B420C /* ContentView.swift */,
+				87D9E3DB2A8CF82700FF1F09 /* NumberButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,8 +168,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B7288B62A8CAAD1005B420C /* Number.swift in Sources */,
-				5B7288B32A8CAA38005B420C /* NumberButton.swift in Sources */,
 				5B7288A32A8CA7A2005B420C /* ContentView.swift in Sources */,
+				87D9E3DC2A8CF82700FF1F09 /* NumberButton.swift in Sources */,
 				5B7288A12A8CA7A2005B420C /* TCA_Phone_CloneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,8 +305,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -315,9 +315,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.doyeonKim97.TCA-Phone-Clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -335,8 +338,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -345,9 +348,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.doyeonKim97.TCA-Phone-Clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
