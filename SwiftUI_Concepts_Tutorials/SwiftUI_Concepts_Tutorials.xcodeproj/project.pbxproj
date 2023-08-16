@@ -62,6 +62,10 @@
 		5B72886F2A8C9C59005B420C /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72886E2A8C9C59005B420C /* ContentListView.swift */; };
 		5B7288742A8C9CA6005B420C /* RecipeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288722A8C9CA6005B420C /* RecipeListItemView.swift */; };
 		5B7288752A8C9CA6005B420C /* RecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288732A8C9CA6005B420C /* RecipeListView.swift */; };
+		5B7288772A8C9DA6005B420C /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288762A8C9DA6005B420C /* StarRating.swift */; };
+		5B72887C2A8C9E7B005B420C /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72887B2A8C9E7B005B420C /* TitleView.swift */; };
+		5B7288802A8C9EBC005B420C /* CompactTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72887F2A8C9EBC005B420C /* CompactTitleView.swift */; };
+		5B7288822A8C9ED6005B420C /* RegularTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288812A8C9ED6005B420C /* RegularTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +125,10 @@
 		5B72886E2A8C9C59005B420C /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		5B7288722A8C9CA6005B420C /* RecipeListItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeListItemView.swift; sourceTree = "<group>"; };
 		5B7288732A8C9CA6005B420C /* RecipeListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
+		5B7288762A8C9DA6005B420C /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
+		5B72887B2A8C9E7B005B420C /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		5B72887F2A8C9EBC005B420C /* CompactTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactTitleView.swift; sourceTree = "<group>"; };
+		5B7288812A8C9ED6005B420C /* RegularTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,10 +277,12 @@
 		5B7288242A8C6A64005B420C /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
+				5B7288762A8C9DA6005B420C /* StarRating.swift */,
 				5B7288272A8C6ACB005B420C /* Resources */,
 				5B7288672A8C9785005B420C /* Navigation */,
 				5B7288712A8C9CA6005B420C /* RecipeContentListViews */,
 				5B7288262A8C6A9D005B420C /* RecipeEditor */,
+				5B7288782A8C9E16005B420C /* TitleViews */,
 				5B7288252A8C6A8F005B420C /* Model */,
 			);
 			path = Recipes;
@@ -346,6 +356,16 @@
 				5B7288732A8C9CA6005B420C /* RecipeListView.swift */,
 			);
 			path = RecipeContentListViews;
+			sourceTree = "<group>";
+		};
+		5B7288782A8C9E16005B420C /* TitleViews */ = {
+			isa = PBXGroup;
+			children = (
+				5B72887F2A8C9EBC005B420C /* CompactTitleView.swift */,
+				5B72887B2A8C9E7B005B420C /* TitleView.swift */,
+				5B7288812A8C9ED6005B420C /* RegularTitleView.swift */,
+			);
+			path = TitleViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,13 +463,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7288822A8C9ED6005B420C /* RegularTitleView.swift in Sources */,
 				5B7288022A8C5089005B420C /* DateView.swift in Sources */,
+				5B7288802A8C9EBC005B420C /* CompactTitleView.swift in Sources */,
 				5B72881B2A8C5B95005B420C /* IfElseTrain.swift in Sources */,
 				5B7288082A8C5223005B420C /* DetailView.swift in Sources */,
 				5B7288212A8C5DB0005B420C /* TrainCar.swift in Sources */,
 				5B7288692A8C9794005B420C /* SidebarItem.swift in Sources */,
+				5B72887C2A8C9E7B005B420C /* TitleView.swift in Sources */,
 				5B7288642A8C94A9005B420C /* RecipeBox.swift in Sources */,
 				5B7287FC2A8C500A005B420C /* JournalEntry.swift in Sources */,
+				5B7288772A8C9DA6005B420C /* StarRating.swift in Sources */,
 				5B72885D2A8C84AA005B420C /* ModelHelpers.swift in Sources */,
 				5B72886D2A8C9945005B420C /* RecipeEditorForm.swift in Sources */,
 				5B7287EF2A8C4C70005B420C /* ContentView.swift in Sources */,
