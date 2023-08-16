@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B7288A12A8CA7A2005B420C /* TCA_Phone_CloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288A02A8CA7A2005B420C /* TCA_Phone_CloneApp.swift */; };
+		5B7288A12A8CA7A2005B420C /* MyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288A02A8CA7A2005B420C /* MyApp.swift */; };
 		5B7288A32A8CA7A2005B420C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288A22A8CA7A2005B420C /* ContentView.swift */; };
 		5B7288A52A8CA7A3005B420C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7288A42A8CA7A3005B420C /* Assets.xcassets */; };
 		5B7288A82A8CA7A3005B420C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7288A72A8CA7A3005B420C /* Preview Assets.xcassets */; };
 		5B7288B02A8CA7D7005B420C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7288AF2A8CA7D7005B420C /* ComposableArchitecture */; };
 		5B7288B62A8CAAD1005B420C /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288B52A8CAAD1005B420C /* Number.swift */; };
 		87D9E3DC2A8CF82700FF1F09 /* NumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D9E3DB2A8CF82700FF1F09 /* NumberButton.swift */; };
+		87D9E3E12A8D002400FF1F09 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D9E3E02A8D002400FF1F09 /* DeleteButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5B72889D2A8CA7A2005B420C /* TCA_Phone_Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCA_Phone_Clone.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B7288A02A8CA7A2005B420C /* TCA_Phone_CloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_Phone_CloneApp.swift; sourceTree = "<group>"; };
+		5B7288A02A8CA7A2005B420C /* MyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApp.swift; sourceTree = "<group>"; };
 		5B7288A22A8CA7A2005B420C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5B7288A42A8CA7A3005B420C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B7288A72A8CA7A3005B420C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5B7288B52A8CAAD1005B420C /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		87D9E3DB2A8CF82700FF1F09 /* NumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberButton.swift; sourceTree = "<group>"; };
+		87D9E3E02A8D002400FF1F09 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +59,7 @@
 		5B72889F2A8CA7A2005B420C /* TCA_Phone_Clone */ = {
 			isa = PBXGroup;
 			children = (
-				5B7288A02A8CA7A2005B420C /* TCA_Phone_CloneApp.swift */,
+				5B7288A02A8CA7A2005B420C /* MyApp.swift */,
 				5B7288B42A8CAAC3005B420C /* Model */,
 				5B7288B12A8CA7E8005B420C /* View */,
 				5B7288A42A8CA7A3005B420C /* Assets.xcassets */,
@@ -78,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				5B7288A22A8CA7A2005B420C /* ContentView.swift */,
-				87D9E3DB2A8CF82700FF1F09 /* NumberButton.swift */,
+				87D9E3DD2A8CFFF100FF1F09 /* Çomponents */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -89,6 +91,16 @@
 				5B7288B52A8CAAD1005B420C /* Number.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		87D9E3DD2A8CFFF100FF1F09 /* Çomponents */ = {
+			isa = PBXGroup;
+			children = (
+				87D9E3DB2A8CF82700FF1F09 /* NumberButton.swift */,
+				87D9E3E02A8D002400FF1F09 /* DeleteButton.swift */,
+			);
+			name = "Çomponents";
+			path = "Çomponents";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,7 +182,8 @@
 				5B7288B62A8CAAD1005B420C /* Number.swift in Sources */,
 				5B7288A32A8CA7A2005B420C /* ContentView.swift in Sources */,
 				87D9E3DC2A8CF82700FF1F09 /* NumberButton.swift in Sources */,
-				5B7288A12A8CA7A2005B420C /* TCA_Phone_CloneApp.swift in Sources */,
+				5B7288A12A8CA7A2005B420C /* MyApp.swift in Sources */,
+				87D9E3E12A8D002400FF1F09 /* DeleteButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
