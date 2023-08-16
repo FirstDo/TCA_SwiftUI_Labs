@@ -12,6 +12,7 @@
 		5B7288A52A8CA7A3005B420C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7288A42A8CA7A3005B420C /* Assets.xcassets */; };
 		5B7288A82A8CA7A3005B420C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7288A72A8CA7A3005B420C /* Preview Assets.xcassets */; };
 		5B7288B02A8CA7D7005B420C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7288AF2A8CA7D7005B420C /* ComposableArchitecture */; };
+		5B7288B62A8CAAD1005B420C /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288B52A8CAAD1005B420C /* Number.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		5B7288A22A8CA7A2005B420C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5B7288A42A8CA7A3005B420C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B7288A72A8CA7A3005B420C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5B7288B52A8CAAD1005B420C /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				5B7288A02A8CA7A2005B420C /* TCA_Phone_CloneApp.swift */,
+				5B7288B42A8CAAC3005B420C /* Model */,
 				5B7288B12A8CA7E8005B420C /* View */,
 				5B7288A42A8CA7A3005B420C /* Assets.xcassets */,
 				5B7288A62A8CA7A3005B420C /* Preview Content */,
@@ -75,6 +78,14 @@
 				5B7288A22A8CA7A2005B420C /* ContentView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5B7288B42A8CAAC3005B420C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B7288B52A8CAAD1005B420C /* Number.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7288B62A8CAAD1005B420C /* Number.swift in Sources */,
 				5B7288A32A8CA7A2005B420C /* ContentView.swift in Sources */,
 				5B7288A12A8CA7A2005B420C /* TCA_Phone_CloneApp.swift in Sources */,
 			);
