@@ -26,7 +26,7 @@ struct AlternativeContentView: View {
                 }
             }
         } detail: {
-            DetailView(selectedEntry: $selectedEntry)
+            DetailView2(selectedEntry: $selectedEntry)
         }
     }
 }

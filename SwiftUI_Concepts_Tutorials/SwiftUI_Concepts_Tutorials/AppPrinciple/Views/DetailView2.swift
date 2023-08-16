@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DetailView: View {
+struct DetailView2: View {
     @Binding var selectedEntry: JournalEntry?
     
     var body: some View {
@@ -14,6 +14,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(selectedEntry: .constant(.init(text: "dummy")))
+        DetailView2(selectedEntry: .constant(.init(text: "dummy")))
     }
 }
