@@ -25,6 +25,8 @@
 		5B7288182A8C59C8005B420C /* CaptionedPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288172A8C59C8005B420C /* CaptionedPhoto.swift */; };
 		5B72881B2A8C5B95005B420C /* IfElseTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72881A2A8C5B95005B420C /* IfElseTrain.swift */; };
 		5B72881E2A8C5C7A005B420C /* EventTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72881D2A8C5C7A005B420C /* EventTitle.swift */; };
+		5B7288212A8C5DB0005B420C /* TrainCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288202A8C5DB0005B420C /* TrainCar.swift */; };
+		5B7288232A8C5E53005B420C /* DefaultSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7288222A8C5E53005B420C /* DefaultSpacing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		5B7288172A8C59C8005B420C /* CaptionedPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionedPhoto.swift; sourceTree = "<group>"; };
 		5B72881A2A8C5B95005B420C /* IfElseTrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfElseTrain.swift; sourceTree = "<group>"; };
 		5B72881D2A8C5C7A005B420C /* EventTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTitle.swift; sourceTree = "<group>"; };
+		5B7288202A8C5DB0005B420C /* TrainCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainCar.swift; sourceTree = "<group>"; };
+		5B7288222A8C5E53005B420C /* DefaultSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSpacing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 		5B7288122A8C588B005B420C /* ViewLayout */ = {
 			isa = PBXGroup;
 			children = (
+				5B72881F2A8C5D99005B420C /* Spacing */,
 				5B72881C2A8C5C63005B420C /* EventTile */,
 				5B7288192A8C5B61005B420C /* HiddingViews */,
 				5B7288162A8C59A2005B420C /* LayeringContent */,
@@ -179,6 +184,15 @@
 				5B72881D2A8C5C7A005B420C /* EventTitle.swift */,
 			);
 			path = EventTile;
+			sourceTree = "<group>";
+		};
+		5B72881F2A8C5D99005B420C /* Spacing */ = {
+			isa = PBXGroup;
+			children = (
+				5B7288202A8C5DB0005B420C /* TrainCar.swift */,
+				5B7288222A8C5E53005B420C /* DefaultSpacing.swift */,
+			);
+			path = Spacing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +268,7 @@
 				5B7288022A8C5089005B420C /* DateView.swift in Sources */,
 				5B72881B2A8C5B95005B420C /* IfElseTrain.swift in Sources */,
 				5B7288082A8C5223005B420C /* DetailView.swift in Sources */,
+				5B7288212A8C5DB0005B420C /* TrainCar.swift in Sources */,
 				5B7287FC2A8C500A005B420C /* JournalEntry.swift in Sources */,
 				5B7287EF2A8C4C70005B420C /* ContentView.swift in Sources */,
 				5B7288062A8C51D1005B420C /* JournalEntryListItem.swift in Sources */,
@@ -261,6 +276,7 @@
 				5B7288152A8C58BE005B420C /* KeywordBubbleDefaultPadding.swift in Sources */,
 				5B72880C2A8C5377005B420C /* SettingsDetailView.swift in Sources */,
 				5B7288042A8C5138005B420C /* JournalEntryView.swift in Sources */,
+				5B7288232A8C5E53005B420C /* DefaultSpacing.swift in Sources */,
 				5B7288102A8C57AB005B420C /* MyScene.swift in Sources */,
 				5B7287ED2A8C4C70005B420C /* MyApp.swift in Sources */,
 				5B7287FE2A8C5024005B420C /* Journal.swift in Sources */,
