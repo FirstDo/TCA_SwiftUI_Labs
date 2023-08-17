@@ -9,7 +9,7 @@ struct AddContactView: View {
             Form {
                 TextField("Name", text: viewStore.binding(get: \.contact.name, send: { .setName($0)}))
                 Button("Save") {
-                    viewStore.send(.saveButtonTapped)
+                    viewStore.send(.saveButtonTapped(viewStore.contact))
                 }
             }
             .toolbar {

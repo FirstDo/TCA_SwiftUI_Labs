@@ -4,54 +4,37 @@ import ComposableArchitecture
 struct ContactsView: View {
     let store: StoreOf<ContactsFeature>
     var body: some View {
-        NavigationStackStore(self.store.scope(state: \.path, action: { .path($0) })) {
-            WithViewStore(store, observe: \.contacts) { viewStore in
-                List {
-                    ForEach(viewStore.state) { contact in
-                        NavigationLink(state: ContactDetailFeature.State(contact: contact)) {
-                            HStack {
-                                Text(contact.name)
-                                Spacer()
-                                Button {
-                                    viewStore.send(.deleteButtonTapped(id: contact.id))
-                                } label: {
-                                    Image(systemName: "trash")
-                                        .foregroundColor(.red)
-                                }
-                            }
-                        }
-                        .buttonStyle(.borderless)
-                    }
-                }
-                .animation(.default, value: viewStore.state)
-                .navigationTitle("Contacts")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+        WithViewStore(store, observe: \.contacts) { viewStore in
+            List {
+                ForEach(viewStore.state) { contact in
+                    HStack {
+                        Text(contact.name)
+                        Spacer()
                         Button {
-                            viewStore.send(.addButtonTapped)
+                            viewStore.send(.deleteButtonTapped(id: contact.id))
                         } label: {
-                            Image(systemName: "plus")
+                            Image(systemName: "trash")
+                                .foregroundColor(.red)
                         }
-                        
+                    }
+                    .onTapGesture {
+                        viewStore.send(.itemTapped(contact: contact))
                     }
                 }
             }
-        } destination: { subStore in
-            ContactDetailView(store: subStore)
-        }
-        .sheet(
-            store: store.scope(state: \.$destination, action: { .destination($0) }),
-            state: /ContactsFeature.Destination.State.addContact,
-            action: ContactsFeature.Destination.Action.addContact) { subStore in
-                NavigationStack {
-                    AddContactView(store: subStore)
+            .animation(.default, value: viewStore.state)
+            .navigationTitle("Contacts")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        viewStore.send(.addButtonTapped)
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    
                 }
             }
-        .alert(
-            store: store.scope(state: \.$destination, action: { .destination($0) }),
-            state: /ContactsFeature.Destination.State.alert,
-            action: ContactsFeature.Destination.Action.alert
-        )
+        }
     }
 }
 

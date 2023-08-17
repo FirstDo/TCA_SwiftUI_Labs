@@ -22,6 +22,9 @@
 		5B95018D2A89A43E006B4874 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95018C2A89A43E006B4874 /* ContactsView.swift */; };
 		5B95018F2A89A854006B4874 /* AddContactFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95018E2A89A854006B4874 /* AddContactFeature.swift */; };
 		5B9501912A89A96D006B4874 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9501902A89A96D006B4874 /* AddContactView.swift */; };
+		5BC09D6A2A8DE07400A26EF9 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09D692A8DE07400A26EF9 /* Screen.swift */; };
+		5BC09D6C2A8DE11E00A26EF9 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09D6B2A8DE11E00A26EF9 /* CoordinatorView.swift */; };
+		5BC09D6F2A8DE32000A26EF9 /* TCACoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 5BC09D6E2A8DE32000A26EF9 /* TCACoordinators */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,8 @@
 		5B95018C2A89A43E006B4874 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		5B95018E2A89A854006B4874 /* AddContactFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactFeature.swift; sourceTree = "<group>"; };
 		5B9501902A89A96D006B4874 /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
+		5BC09D692A8DE07400A26EF9 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		5BC09D6B2A8DE11E00A26EF9 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC09D6F2A8DE32000A26EF9 /* TCACoordinators in Frameworks */,
 				5B7999872A84A25000BC3BDA /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +138,8 @@
 		5B9501892A89A091006B4874 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
+				5BC09D682A8DE03800A26EF9 /* Coordinator */,
+				5BC09D672A8DE03200A26EF9 /* View */,
 				5B95018A2A89A0D1006B4874 /* ContactsFeature.swift */,
 				5B95018C2A89A43E006B4874 /* ContactsView.swift */,
 				5B95018E2A89A854006B4874 /* AddContactFeature.swift */,
@@ -140,6 +148,22 @@
 				5B02DCA22A89F3F700874918 /* ContactDetailView.swift */,
 			);
 			path = Contact;
+			sourceTree = "<group>";
+		};
+		5BC09D672A8DE03200A26EF9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5BC09D682A8DE03800A26EF9 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				5BC09D692A8DE07400A26EF9 /* Screen.swift */,
+				5BC09D6B2A8DE11E00A26EF9 /* CoordinatorView.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +184,7 @@
 			name = ComposableTutorial;
 			packageProductDependencies = (
 				5B7999862A84A25000BC3BDA /* ComposableArchitecture */,
+				5BC09D6E2A8DE32000A26EF9 /* TCACoordinators */,
 			);
 			productName = ComposableTutorial;
 			productReference = 5B7999742A84A21600BC3BDA /* ComposableTutorial.app */;
@@ -213,6 +238,7 @@
 			mainGroup = 5B79996B2A84A21600BC3BDA;
 			packageReferences = (
 				5B7999852A84A25000BC3BDA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				5BC09D6D2A8DE32000A26EF9 /* XCRemoteSwiftPackageReference "TCACoordinators" */,
 			);
 			productRefGroup = 5B7999752A84A21600BC3BDA /* Products */;
 			projectDirPath = "";
@@ -255,9 +281,11 @@
 				5B02DCA12A89F3BF00874918 /* ContactDetailFeature.swift in Sources */,
 				5B7287B72A89F5FB005B420C /* NumberFactClient.swift in Sources */,
 				5B7287B52A89F5F0005B420C /* CounterView.swift in Sources */,
+				5BC09D6C2A8DE11E00A26EF9 /* CoordinatorView.swift in Sources */,
 				5B95018B2A89A0D1006B4874 /* ContactsFeature.swift in Sources */,
 				5B95018F2A89A854006B4874 /* AddContactFeature.swift in Sources */,
 				5B9501912A89A96D006B4874 /* AddContactView.swift in Sources */,
+				5BC09D6A2A8DE07400A26EF9 /* Screen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +580,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		5BC09D6D2A8DE32000A26EF9 /* XCRemoteSwiftPackageReference "TCACoordinators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnpatrickmorgan/TCACoordinators";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -559,6 +595,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5B7999852A84A25000BC3BDA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		5BC09D6E2A8DE32000A26EF9 /* TCACoordinators */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BC09D6D2A8DE32000A26EF9 /* XCRemoteSwiftPackageReference "TCACoordinators" */;
+			productName = TCACoordinators;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

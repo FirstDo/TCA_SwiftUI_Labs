@@ -80,6 +80,7 @@ private extension ContentView {
                 }
             } label: {
                 Text("번호 추가")
+                    .frame(maxWidth: .infinity)
                     .font(.title3)
                     .opacity(viewStore.numbers.isEmpty ? 0 : 1)
             }
