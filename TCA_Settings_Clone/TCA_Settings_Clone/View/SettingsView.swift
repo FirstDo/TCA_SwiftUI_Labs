@@ -9,13 +9,16 @@ struct SettingsFeature: Reducer {
         
         var path = StackState<DetailFeature.State>()
         @PresentationState var alert: AlertState<Action.Alert>?
+        
         var toggleState = RowWithToggleFeature.State(type: .airplaneMode, toggle: true)
+        @BindingState var query = ""
     }
     
-    enum Action: Equatable {
+    enum Action: BindableAction, Equatable {
         case path(StackAction<DetailFeature.State, DetailFeature.Action>)
         case alert(PresentationAction<Alert>)
         case subAction(RowWithToggleFeature.Action)
+        case binding(BindingAction<State>)
         
         enum Alert: Equatable {
             case confirm
@@ -23,8 +26,12 @@ struct SettingsFeature: Reducer {
     }
     
     var body: some ReducerOf<Self> {
+        BindingReducer()
         Reduce { state, action in
             switch action {
+            case .binding:
+                return .none
+                
             case .subAction:
                 state.alert = AlertState {
                     TextState("스위치를 토글할까요?")
@@ -40,6 +47,11 @@ struct SettingsFeature: Reducer {
                 return .none
                 
             case .alert:
+                return .none
+                
+            case let .path(.element(id, .backButtonTapped)):
+                let detailState = state.path[id: id]!
+                state.query = detailState.title
                 return .none
                 
             case .path:
@@ -65,7 +77,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationStackStore(store.scope(state: \.path, action: { .path($0)} )) {
             WithViewStore(store, observe: { $0 }) { viewStore in
-                Form {
+                List {
                     Section {
                         NavigationLink(state: DetailFeature.State(title: "프로필 수정")) {
                             ProfileView(store: .init(initialState: .init()) {
@@ -73,6 +85,7 @@ struct SettingsView: View {
                             })
                         }
                     }
+                    .id(1)
                     
                     Section {
                         ForEach(viewStore.section1) { cell in
@@ -102,6 +115,7 @@ struct SettingsView: View {
                         }
                     }
                 }
+                .searchable(text: viewStore.$query, placement: .navigationBarDrawer, prompt: "검색")
             }
             .navigationTitle("설정")
             .navigationBarTitleDisplayMode(.large)

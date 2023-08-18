@@ -10,10 +10,14 @@ struct DetailFeature: Reducer {
         case backButtonTapped
     }
     
+    @Dependency(\.dismiss) var dismiss
+    
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .backButtonTapped:
-            return .none
+            return .run { _ in
+                await dismiss()
+            }
         }
     }
 }
