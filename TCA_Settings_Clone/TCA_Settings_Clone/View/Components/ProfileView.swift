@@ -31,8 +31,6 @@ struct ProfileView: View {
                     .frame(width: 50, height: 50)
                     .padding(.vertical, 5)
                 
-                Spacer()
-                
                 VStack(alignment: .leading) {
                     Text(viewStore.title)
                         .font(.title)

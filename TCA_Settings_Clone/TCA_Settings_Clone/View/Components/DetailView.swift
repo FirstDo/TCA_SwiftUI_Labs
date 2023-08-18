@@ -31,6 +31,7 @@ struct DetailView: View {
                 .buttonStyle(.borderedProminent)
             }
             .font(.largeTitle)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

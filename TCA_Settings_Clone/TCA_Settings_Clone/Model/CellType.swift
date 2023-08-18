@@ -7,7 +7,19 @@ enum Style {
     case toggle
 }
 
-enum Cell: String, CaseIterable {
+extension Cell {
+    static let first: [Cell] = [
+        .airpod
+    ]
+    static let second: [Cell] = [
+        .airplaneMode ,.wifi, .bluetooth, .cellular, .hotsopt, .vpn
+    ]
+    static let third: [Cell] = [
+        .alarm, .soundAndHaptic, .concentrationMode, .screenTime
+    ]
+}
+
+enum Cell: String, CaseIterable, Identifiable {
     case airpod = "도연의 AirPods Pro 2"
     case airplaneMode = "에어플레인 모드"
     case wifi = "Wi-Fi"
@@ -19,6 +31,10 @@ enum Cell: String, CaseIterable {
     case soundAndHaptic = "사운드 및 햅틱"
     case concentrationMode = "집중 모드"
     case screenTime = "스크린 타임"
+    
+    var id: String {
+        return self.rawValue
+    }
     
     var style: Style {
         switch self {
