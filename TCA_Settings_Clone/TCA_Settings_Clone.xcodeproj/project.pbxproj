@@ -17,6 +17,7 @@
 		5BC09D9D2A8EF38600A26EF9 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09D9C2A8EF38600A26EF9 /* CellType.swift */; };
 		5BC09D9F2A8EF9FC00A26EF9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09D9E2A8EF9FC00A26EF9 /* ProfileView.swift */; };
 		5BC09DA22A8F1FD000A26EF9 /* RowWithToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DA12A8F1FD000A26EF9 /* RowWithToggle.swift */; };
+		5BC09DA42A8F257500A26EF9 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DA32A8F257500A26EF9 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5BC09D9C2A8EF38600A26EF9 /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		5BC09D9E2A8EF9FC00A26EF9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5BC09DA12A8F1FD000A26EF9 /* RowWithToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowWithToggle.swift; sourceTree = "<group>"; };
+		5BC09DA32A8F257500A26EF9 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				5BC09D862A8EF0BA00A26EF9 /* SettingsView.swift */,
+				5BC09D992A8EF16D00A26EF9 /* DetailView.swift */,
 				5BC09DA02A8EFB3400A26EF9 /* Components */,
 			);
 			path = View;
@@ -103,7 +106,7 @@
 				5BC09D972A8EF16000A26EF9 /* Row.swift */,
 				5BC09DA12A8F1FD000A26EF9 /* RowWithToggle.swift */,
 				5BC09D9E2A8EF9FC00A26EF9 /* ProfileView.swift */,
-				5BC09D992A8EF16D00A26EF9 /* DetailView.swift */,
+				5BC09DA32A8F257500A26EF9 /* SearchBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				5BC09D9A2A8EF16D00A26EF9 /* DetailView.swift in Sources */,
 				5BC09DA22A8F1FD000A26EF9 /* RowWithToggle.swift in Sources */,
 				5BC09D982A8EF16000A26EF9 /* Row.swift in Sources */,
+				5BC09DA42A8F257500A26EF9 /* SearchBar.swift in Sources */,
 				5BC09D9F2A8EF9FC00A26EF9 /* ProfileView.swift in Sources */,
 				5BC09D852A8EF0BA00A26EF9 /* MyApp.swift in Sources */,
 			);
