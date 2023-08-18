@@ -6,11 +6,10 @@ import TCACoordinators
 struct TCA_Coordinator_ExampleApp: App {
     var body: some Scene {
         WindowGroup {
-          CoordinatorView(
-            store: .init(initialState: Coordinator.State()) {
-              Coordinator()
-            }
-          )
+            CoordinatorView(
+                store: .init(initialState: .init()) {
+                    Coordinator()
+                })
         }
     }
 }

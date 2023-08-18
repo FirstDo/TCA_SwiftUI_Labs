@@ -1,23 +1,22 @@
 import ComposableArchitecture
 
 struct Screen: Reducer {
-  enum State: Equatable {
-    case home(Home.State)
-    case detail(Detail.State)
-  }
-  
-  enum Action: Equatable {
-    case home(Home.Action)
-    case detail(Detail.Action)
-  }
-  
-  var body: some ReducerOf<Self> {
-    Scope(state: /State.home, action: /Action.home) {
-      Home()
+    enum State: Equatable {
+        case main(MainFeature.State)
+        case detail(DetailFeature.State)
     }
     
-    Scope(state: /State.detail, action: /Action.detail) {
-      Detail()
+    enum Action: Equatable {
+        case main(MainFeature.Action)
+        case detail(DetailFeature.Action)
     }
-  }
+    
+    var body: some ReducerOf<Self> {
+        Scope(state: /State.main, action: /Action.main) {
+            MainFeature()
+        }
+        Scope(state: /State.detail, action: /Action.detail) {
+            DetailFeature()
+        }
+    }
 }
