@@ -7,26 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B7287C52A8A116C005B420C /* TCA_Coordinator_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7287C42A8A116C005B420C /* TCA_Coordinator_ExampleApp.swift */; };
+		5B7287C52A8A116C005B420C /* MyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7287C42A8A116C005B420C /* MyApp.swift */; };
 		5B7287C92A8A116F005B420C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7287C82A8A116F005B420C /* Assets.xcassets */; };
 		5B7287CC2A8A116F005B420C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7287CB2A8A116F005B420C /* Preview Assets.xcassets */; };
 		5B7287D42A8A1187005B420C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7287D32A8A1187005B420C /* ComposableArchitecture */; };
 		5B7287D72A8A11A9005B420C /* TCACoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7287D62A8A11A9005B420C /* TCACoordinators */; };
-		5BC09D712A8EE64300A26EF9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09D702A8EE64300A26EF9 /* MainView.swift */; };
-		5BC09D732A8EE6C700A26EF9 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09D722A8EE6C700A26EF9 /* DetailView.swift */; };
-		5BC09D752A8EE76C00A26EF9 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09D742A8EE76C00A26EF9 /* Screen.swift */; };
-		5BC09D772A8EE81C00A26EF9 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09D762A8EE81C00A26EF9 /* CoordinatorView.swift */; };
+		5BC09DB02A933CA700A26EF9 /* Step1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DAF2A933CA700A26EF9 /* Step1View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5B7287C12A8A116C005B420C /* TCA_Coordinator_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCA_Coordinator_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B7287C42A8A116C005B420C /* TCA_Coordinator_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_Coordinator_ExampleApp.swift; sourceTree = "<group>"; };
+		5B7287C42A8A116C005B420C /* MyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApp.swift; sourceTree = "<group>"; };
 		5B7287C82A8A116F005B420C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B7287CB2A8A116F005B420C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5BC09D702A8EE64300A26EF9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		5BC09D722A8EE6C700A26EF9 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		5BC09D742A8EE76C00A26EF9 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
-		5BC09D762A8EE81C00A26EF9 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
+		5BC09DAF2A933CA700A26EF9 /* Step1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step1View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +55,8 @@
 		5B7287C32A8A116C005B420C /* TCA_Coordinator_Example */ = {
 			isa = PBXGroup;
 			children = (
-				5B7287C42A8A116C005B420C /* TCA_Coordinator_ExampleApp.swift */,
-				5BC09D742A8EE76C00A26EF9 /* Screen.swift */,
-				5BC09D762A8EE81C00A26EF9 /* CoordinatorView.swift */,
-				5BC09D702A8EE64300A26EF9 /* MainView.swift */,
-				5BC09D722A8EE6C700A26EF9 /* DetailView.swift */,
+				5B7287C42A8A116C005B420C /* MyApp.swift */,
+				5BC09DAF2A933CA700A26EF9 /* Step1View.swift */,
 				5B7287C82A8A116F005B420C /* Assets.xcassets */,
 				5B7287CA2A8A116F005B420C /* Preview Content */,
 			);
@@ -158,11 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B7287C52A8A116C005B420C /* TCA_Coordinator_ExampleApp.swift in Sources */,
-				5BC09D772A8EE81C00A26EF9 /* CoordinatorView.swift in Sources */,
-				5BC09D732A8EE6C700A26EF9 /* DetailView.swift in Sources */,
-				5BC09D712A8EE64300A26EF9 /* MainView.swift in Sources */,
-				5BC09D752A8EE76C00A26EF9 /* Screen.swift in Sources */,
+				5BC09DB02A933CA700A26EF9 /* Step1View.swift in Sources */,
+				5B7287C52A8A116C005B420C /* MyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
