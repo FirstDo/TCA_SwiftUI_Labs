@@ -14,6 +14,7 @@
 		5B7287D72A8A11A9005B420C /* TCACoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 5B7287D62A8A11A9005B420C /* TCACoordinators */; };
 		5BC09DB02A933CA700A26EF9 /* Step1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DAF2A933CA700A26EF9 /* Step1.swift */; };
 		5BC09DB32A93485700A26EF9 /* Step2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DB22A93485700A26EF9 /* Step2.swift */; };
+		5BC09DB52A934A4E00A26EF9 /* Step3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DB42A934A4E00A26EF9 /* Step3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		5B7287CB2A8A116F005B420C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5BC09DAF2A933CA700A26EF9 /* Step1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step1.swift; sourceTree = "<group>"; };
 		5BC09DB22A93485700A26EF9 /* Step2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step2.swift; sourceTree = "<group>"; };
+		5BC09DB42A934A4E00A26EF9 /* Step3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			children = (
 				5BC09DAF2A933CA700A26EF9 /* Step1.swift */,
 				5BC09DB22A93485700A26EF9 /* Step2.swift */,
+				5BC09DB42A934A4E00A26EF9 /* Step3.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BC09DB02A933CA700A26EF9 /* Step1.swift in Sources */,
+				5BC09DB52A934A4E00A26EF9 /* Step3.swift in Sources */,
 				5B7287C52A8A116C005B420C /* MyApp.swift in Sources */,
 				5BC09DB32A93485700A26EF9 /* Step2.swift in Sources */,
 			);
