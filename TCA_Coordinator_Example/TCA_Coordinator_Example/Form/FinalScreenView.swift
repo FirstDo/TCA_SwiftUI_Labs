@@ -2,47 +2,145 @@ import SwiftUI
 import ComposableArchitecture
 
 struct FinalScreen: Reducer {
-    
-}
-
-struct FinalScreenView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct FinalScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        FinalScreenView()
-    }
-}
-
-
-struct APIModel: Codable, Equatable {
+  struct State: Equatable {
     let firstName: String
     let lastName: String
     let dateOfBirth: Date
-    let job: String
+    let job: String?
+    
+    var submissionInFlight = false
+    var isIncomplete: Bool {
+      firstName.isEmpty || lastName.isEmpty || job?.isEmpty ?? true
+    }
+  }
+  
+  enum Action: Equatable {
+    case returnToName
+    case returnToDateOfBirth
+    case returnToJob
+    
+    case submit
+    case receiveAPIResponse(Bool)
+  }
+  
+  @Dependency(\.mainQueue) var mainQueue
+  let submit: (APIModel) async -> Bool
+  
+  var body: some ReducerOf<Self> {
+    Reduce { state, action in
+      switch action {
+      case .submit:
+        guard let job = state.job else { return .none }
+        state.submissionInFlight = true
+        
+        let apiModel = APIModel(
+          firstName: state.firstName,
+          lastName: state.lastName,
+          dateOfBirth: state.dateOfBirth,
+          job: job
+        )
+        
+        return .run { send in
+          try await mainQueue.sleep(for: .seconds(0.8))
+          await send(.receiveAPIResponse(submit(apiModel)))
+        }
+        
+      case .receiveAPIResponse:
+        state.submissionInFlight = false
+        return .none
+        
+      case .returnToName, .returnToDateOfBirth, .returnToJob:
+        return .none
+      }
+    }
+  }
+}
+
+struct FinalScreenView: View {
+  let store: StoreOf<FinalScreen>
+  
+  var body: some View {
+    WithViewStore(store, observe: { $0 }) { viewStore in
+      Form {
+        Section("Confirm Your Info") {
+          Button {
+            viewStore.send(.returnToName)
+          } label: {
+            LabelledRow("First name") {
+              Text(viewStore.firstName)
+            }.foregroundColor(viewStore.firstName.isEmpty ? .red : .black)
+          }
+          
+          Button {
+            viewStore.send(.returnToName)
+          } label: {
+            LabelledRow("Last Name") {
+              Text(viewStore.lastName)
+            }.foregroundColor(viewStore.lastName.isEmpty ? .red : .black)
+          }
+
+          Button {
+            viewStore.send(.returnToDateOfBirth)
+          } label: {
+            LabelledRow("Date of Birth") {
+              Text(viewStore.dateOfBirth, format: .dateTime.day().month().year())
+            }
+          }
+          
+          Button {
+            viewStore.send(.returnToJob)
+          } label: {
+            LabelledRow("Job") {
+              Text(viewStore.job ?? "-")
+            }.foregroundColor((viewStore.job?.isEmpty ?? true) ? .red : .black)
+          }
+        }
+        .buttonStyle(.plain)
+        
+        Button("Submit") {
+          viewStore.send(.submit)
+        }.disabled(viewStore.isIncomplete)
+      }
+      .navigationTitle("Submit")
+      .disabled(viewStore.submissionInFlight)
+      .overlay {
+        if viewStore.submissionInFlight {
+          Text("Submitting")
+            .padding()
+            .background(.thinMaterial)
+            .cornerRadius(8)
+        }
+      }
+      .animation(.spring(), value: viewStore.submissionInFlight)
+    }
+  }
+}
+
+struct APIModel: Codable, Equatable {
+  let firstName: String
+  let lastName: String
+  let dateOfBirth: Date
+  let job: String
 }
 
 struct LabelledRow<Content: View>: View {
-    let label: String
-    @ViewBuilder var content: () -> Content
-    
-    init(
-        _ label: String,
-        @ViewBuilder content: @escaping () -> Content
-    ) {
-        self.label = label
-        self.content = content
+  let label: String
+  @ViewBuilder var content: () -> Content
+  
+  init(
+    _ label: String,
+    @ViewBuilder content: @escaping () -> Content
+  ) {
+    self.label = label
+    self.content = content
+  }
+  
+  var body: some View {
+    HStack {
+      Text(label)
+      Spacer()
+      content()
     }
-    
-    var body: some View {
-        HStack {
-            Text(label)
-            Spacer()
-            content()
-        }
-        .contentShape(Rectangle())
-    }
+    .contentShape(Rectangle())
+  }
 }

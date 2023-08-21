@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:TCA_Settings_Clone/TCA_Settings_Clone.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:TCA_Phone_Clone/TCA_Phone_Clone.xcodeproj">
    </FileRef>
    <FileRef
