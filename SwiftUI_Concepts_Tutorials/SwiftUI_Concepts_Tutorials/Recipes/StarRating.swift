@@ -1,10 +1,3 @@
-//
-//  StarRating.swift
-//  SwiftUI_Concepts_Tutorials
-//
-//  Created by LS-MAC-00213 on 2023/08/16.
-//
-
 import SwiftUI
 
 struct StarRating: View {
