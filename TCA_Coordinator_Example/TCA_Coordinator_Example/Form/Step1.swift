@@ -24,7 +24,7 @@ struct Step1View: View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             Form {
                 TextField("First Name", text: viewStore.$firstName)
-                TextField("First Name", text: viewStore.$lastName)
+                TextField("Last Name", text: viewStore.$lastName)
                 
                 Section {
                     Button("Next") {

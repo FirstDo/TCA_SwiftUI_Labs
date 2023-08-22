@@ -16,6 +16,12 @@
 		5BC09DB32A93485700A26EF9 /* Step2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DB22A93485700A26EF9 /* Step2.swift */; };
 		5BC09DB52A934A4E00A26EF9 /* Step3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DB42A934A4E00A26EF9 /* Step3.swift */; };
 		5BC09DB72A934E0E00A26EF9 /* FinalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DB62A934E0E00A26EF9 /* FinalScreen.swift */; };
+		5BC09DB92A942BD000A26EF9 /* FormAppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DB82A942BD000A26EF9 /* FormAppCoordinatorView.swift */; };
+		5BC09DBC2A9432CE00A26EF9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DBB2A9432CE00A26EF9 /* HomeView.swift */; };
+		5BC09DBE2A943BA000A26EF9 /* NumberListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DBD2A943BA000A26EF9 /* NumberListView.swift */; };
+		5BC09DC02A943C5400A26EF9 /* NumberDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DBF2A943C5400A26EF9 /* NumberDetailView.swift */; };
+		5BC09DC22A943E0A00A26EF9 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DC12A943E0A00A26EF9 /* Screen.swift */; };
+		5BC09DC42A943F5100A26EF9 /* IndexCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC09DC32A943F5100A26EF9 /* IndexCoordinator.swift */; };
 		87D3235B2A93AC4C00D2F415 /* FormScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D3235A2A93AC4C00D2F415 /* FormScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +34,12 @@
 		5BC09DB22A93485700A26EF9 /* Step2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step2.swift; sourceTree = "<group>"; };
 		5BC09DB42A934A4E00A26EF9 /* Step3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step3.swift; sourceTree = "<group>"; };
 		5BC09DB62A934E0E00A26EF9 /* FinalScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScreen.swift; sourceTree = "<group>"; };
+		5BC09DB82A942BD000A26EF9 /* FormAppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAppCoordinatorView.swift; sourceTree = "<group>"; };
+		5BC09DBB2A9432CE00A26EF9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5BC09DBD2A943BA000A26EF9 /* NumberListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberListView.swift; sourceTree = "<group>"; };
+		5BC09DBF2A943C5400A26EF9 /* NumberDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDetailView.swift; sourceTree = "<group>"; };
+		5BC09DC12A943E0A00A26EF9 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		5BC09DC32A943F5100A26EF9 /* IndexCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexCoordinator.swift; sourceTree = "<group>"; };
 		87D3235A2A93AC4C00D2F415 /* FormScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +76,9 @@
 			isa = PBXGroup;
 			children = (
 				5B7287C42A8A116C005B420C /* MyApp.swift */,
+				5BC09DC32A943F5100A26EF9 /* IndexCoordinator.swift */,
 				5BC09DB12A93484A00A26EF9 /* Form */,
+				5BC09DBA2A9432AB00A26EF9 /* Numbers */,
 				5B7287C82A8A116F005B420C /* Assets.xcassets */,
 				5B7287CA2A8A116F005B420C /* Preview Content */,
 			);
@@ -82,6 +96,7 @@
 		5BC09DB12A93484A00A26EF9 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				5BC09DB82A942BD000A26EF9 /* FormAppCoordinatorView.swift */,
 				5BC09DAF2A933CA700A26EF9 /* Step1.swift */,
 				5BC09DB22A93485700A26EF9 /* Step2.swift */,
 				5BC09DB42A934A4E00A26EF9 /* Step3.swift */,
@@ -89,6 +104,17 @@
 				87D3235A2A93AC4C00D2F415 /* FormScreen.swift */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		5BC09DBA2A9432AB00A26EF9 /* Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				5BC09DC12A943E0A00A26EF9 /* Screen.swift */,
+				5BC09DBB2A9432CE00A26EF9 /* HomeView.swift */,
+				5BC09DBD2A943BA000A26EF9 /* NumberListView.swift */,
+				5BC09DBF2A943C5400A26EF9 /* NumberDetailView.swift */,
+			);
+			path = Numbers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,12 +195,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC09DC02A943C5400A26EF9 /* NumberDetailView.swift in Sources */,
+				5BC09DC42A943F5100A26EF9 /* IndexCoordinator.swift in Sources */,
 				5BC09DB02A933CA700A26EF9 /* Step1.swift in Sources */,
 				5BC09DB52A934A4E00A26EF9 /* Step3.swift in Sources */,
 				5B7287C52A8A116C005B420C /* MyApp.swift in Sources */,
+				5BC09DBE2A943BA000A26EF9 /* NumberListView.swift in Sources */,
 				87D3235B2A93AC4C00D2F415 /* FormScreen.swift in Sources */,
 				5BC09DB32A93485700A26EF9 /* Step2.swift in Sources */,
+				5BC09DBC2A9432CE00A26EF9 /* HomeView.swift in Sources */,
+				5BC09DB92A942BD000A26EF9 /* FormAppCoordinatorView.swift in Sources */,
 				5BC09DB72A934E0E00A26EF9 /* FinalScreen.swift in Sources */,
+				5BC09DC22A943E0A00A26EF9 /* Screen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
