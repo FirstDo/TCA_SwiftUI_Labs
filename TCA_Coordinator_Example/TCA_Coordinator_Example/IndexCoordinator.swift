@@ -51,3 +51,22 @@ struct IndexCoordinator: Reducer {
         }
     }
 }
+
+struct IndexCoordinatorView: View {
+    let store: StoreOf<IndexCoordinator>
+    
+    var body: some View {
+        TCARouter(store) { screen in
+            SwitchStore(screen) { screen in
+                switch screen {
+                case .home:
+                    CaseLet(/Screen.State.home, action: Screen.Action.home, then: HomeView.init)
+                case .numbersList:
+                    CaseLet(/Screen.State.numbersList, action: Screen.Action.numbersList, then: NumberListView.init)
+                case .numberDetail:
+                    CaseLet(/Screen.State.numberDetail, action: Screen.Action.numberDetail, then: NumberDetailView.init)
+                }
+            }
+        }
+    }
+}

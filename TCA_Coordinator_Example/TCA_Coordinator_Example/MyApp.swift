@@ -6,8 +6,8 @@ import TCACoordinators
 struct TCA_Coordinator_ExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            FormAppCoordinatorView(store: .init(initialState: .initalState) {
-                FormAppCoordinator()
+            MainTabCoordinatorView(store: .init(initialState: .initState) {
+                MainTabCoordinator()
             })
         }
     }
