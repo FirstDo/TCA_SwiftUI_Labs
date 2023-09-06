@@ -11,6 +11,11 @@ struct SoundSelectionCore: Reducer {
     case cancel
     case set
     case select(String)
+    case delegate(Delegate)
+    
+    enum Delegate: Equatable {
+      case changeSound(String)
+    }
   }
   
   @Dependency(\.dismiss) var dismiss
@@ -19,14 +24,17 @@ struct SoundSelectionCore: Reducer {
   
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
+    case .delegate:
+      return .none
+      
     case .cancel, .set:
-      return .run { send in
+      return .run { [state] send in
+        await send(.delegate(.changeSound(state.selectedRing)))
         await dismiss()
       }
       
     case let .select(ring):
       state.selectedRing = ring
-      audioPlayer.stop()
       audioPlayer.play()
       return .none
     }
@@ -50,41 +58,49 @@ struct SoundSelectionView: View {
   
   var body: some View {
     NavigationStack {
-      List {
-        ForEach(viewStore.rings, id: \.self) { ring in
-          HStack {
-            Image(systemName: "checkmark")
-              .foregroundColor(.orange)
-              .opacity(viewStore.selectedRing == ring ? 1 : 0)
-            
-            Text(ring)
+      RingList
+        .toolbar {
+          ToolbarItem(placement: .navigationBarLeading) {
+            Button("취소") {
+              store.send(.cancel)
+            }
+            .tint(.orange)
           }
-          .frame(maxWidth: .infinity)
-          .contentShape(Rectangle())
-          .onTapGesture {
-            store.send(.select(ring))
+          
+          ToolbarItem(placement: .principal) {
+            Text("타이머 종료시")
+              .bold()
+              .foregroundColor(.white)
+          }
+          
+          ToolbarItem(placement: .navigationBarTrailing) {
+            Button("설정") {
+              store.send(.set)
+            }
+            .tint(.orange)
           }
         }
-      }
-      .toolbar {
-        ToolbarItem(placement: .navigationBarLeading) {
-          Button("취소") {
-            store.send(.cancel)
-          }
-          .tint(.orange)
+    }
+  }
+}
+
+extension SoundSelectionView {
+  private var RingList: some View {
+    List {
+      ForEach(viewStore.rings, id: \.self) { ring in
+        HStack {
+          Image(systemName: "checkmark")
+            .foregroundColor(.orange)
+            .opacity(viewStore.selectedRing == ring ? 1 : 0)
+          
+          Text(ring)
+          
+          Spacer()
         }
-        
-        ToolbarItem(placement: .principal) {
-          Text("타이머 종료시")
-            .bold()
-            .foregroundColor(.white)
-        }
-        
-        ToolbarItem(placement: .navigationBarTrailing) {
-          Button("설정") {
-            store.send(.set)
-          }
-          .tint(.orange)
+        .frame(maxWidth: .infinity)
+        .contentShape(Rectangle())
+        .onTapGesture {
+          store.send(.select(ring))
         }
       }
     }

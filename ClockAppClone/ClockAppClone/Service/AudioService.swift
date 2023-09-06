@@ -1,7 +1,7 @@
 import Foundation
 import AVFoundation
 
-struct AudioService {
+class AudioService {
   private let audioPlayer: AVAudioPlayer
   
   init() {
@@ -12,7 +12,8 @@ struct AudioService {
   
   func play() {
     if audioPlayer.isPlaying {
-      audioPlayer.pause()
+      audioPlayer.stop()
+      audioPlayer.prepareToPlay()
     }
     
     audioPlayer.play()

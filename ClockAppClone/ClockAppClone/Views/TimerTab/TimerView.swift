@@ -19,6 +19,8 @@ struct TimerCore: Reducer {
     var startTime: Int { hourMinuteSecond[0] * 3600 + hourMinuteSecond[1] * 60 + hourMinuteSecond[2] }
     var remainTime: Int
     
+    var currentRing = "전파 탐지기"
+    
     init() {
       self.remainTime = 15 * 60
     }
@@ -59,6 +61,7 @@ struct TimerCore: Reducer {
         return .none
         
       case .toggleTimer:
+        player.stop()
         // 0:00:00 일때는 타이머를 동작시키지 않음
         if state.startTime == 0 { return .none }
         
@@ -93,11 +96,11 @@ struct TimerCore: Reducer {
         return .cancel(id: CancelID.timer)
         
       case .rowTapped:
-        state.soundSelectionState = .init(selectedRing: "전파 탐지기")
+        state.soundSelectionState = .init(selectedRing: state.currentRing)
         return .none
         
-      case .soundSelectionAction(.presented(.set)):
-        // call back -> ring 설정해주기
+      case let .soundSelectionAction(.presented(.delegate(.changeSound(sound)))):
+        state.currentRing = sound
         return .none
         
       case .soundSelectionAction:
@@ -180,7 +183,7 @@ private extension TimerView {
         Text("타이머 종료 시")
           .foregroundColor(.white)
         Spacer()
-        Text("전파 탐지기")
+        Text(viewStore.currentRing)
           .foregroundColor(.white.opacity(0.5))
         Image(systemName: "chevron.right")
           .foregroundColor(.white.opacity(0.5))
