@@ -1,6 +1,10 @@
 import Foundation
 import AVFoundation
 
+enum Sound {
+  
+}
+
 struct AudioService {
   
   private var audioPlayer: AVAudioPlayer!

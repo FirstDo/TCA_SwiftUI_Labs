@@ -23,6 +23,9 @@
 		5B3E5B0D2AA570D800424966 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E5B0C2AA570D800424966 /* SearchView.swift */; };
 		5B8A13AE2AA5A15C00D8ED58 /* ClockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A13AD2AA5A15C00D8ED58 /* ClockButton.swift */; };
 		5BD05F322AA5C522000BF8FA /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD05F312AA5C522000BF8FA /* AudioService.swift */; };
+		5BD05F732AA80278000BF8FA /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD05F722AA80278000BF8FA /* CustomPickerView.swift */; };
+		5BD05F752AA802AA000BF8FA /* TimeCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD05F742AA802AA000BF8FA /* TimeCircularView.swift */; };
+		5BD05F772AA80F73000BF8FA /* SoundSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD05F762AA80F73000BF8FA /* SoundSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		5B3E5B0E2AA5776E00424966 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5B8A13AD2AA5A15C00D8ED58 /* ClockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockButton.swift; sourceTree = "<group>"; };
 		5BD05F312AA5C522000BF8FA /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
+		5BD05F722AA80278000BF8FA /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		5BD05F742AA802AA000BF8FA /* TimeCircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCircularView.swift; sourceTree = "<group>"; };
+		5BD05F762AA80F73000BF8FA /* SoundSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				5B3E5B032AA22A1300424966 /* TimerView.swift */,
+				5BD05F762AA80F73000BF8FA /* SoundSelectionView.swift */,
+				5BD05F712AA8026E000BF8FA /* Components */,
 			);
 			path = TimerTab;
 			sourceTree = "<group>";
@@ -201,6 +209,15 @@
 				5BD05F312AA5C522000BF8FA /* AudioService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		5BD05F712AA8026E000BF8FA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5BD05F722AA80278000BF8FA /* CustomPickerView.swift */,
+				5BD05F742AA802AA000BF8FA /* TimeCircularView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,12 +328,15 @@
 			files = (
 				5B3E5B0D2AA570D800424966 /* SearchView.swift in Sources */,
 				5B3E5B042AA22A1300424966 /* TimerView.swift in Sources */,
+				5BD05F772AA80F73000BF8FA /* SoundSelectionView.swift in Sources */,
 				5B3E5ADE2AA2285A00424966 /* ContentView.swift in Sources */,
 				5B3E5B082AA22DED00424966 /* WorldClockItem.swift in Sources */,
 				5B3E5B0B2AA56A3900424966 /* WorldClockSelectView.swift in Sources */,
 				5B8A13AE2AA5A15C00D8ED58 /* ClockButton.swift in Sources */,
+				5BD05F752AA802AA000BF8FA /* TimeCircularView.swift in Sources */,
 				5B3E5AFB2AA229AA00424966 /* WorldClockView.swift in Sources */,
 				5B3E5B062AA22DDE00424966 /* WorldClockRow.swift in Sources */,
+				5BD05F732AA80278000BF8FA /* CustomPickerView.swift in Sources */,
 				5BD05F322AA5C522000BF8FA /* AudioService.swift in Sources */,
 				5B3E5B022AA229EA00424966 /* AlarmView.swift in Sources */,
 				5B3E5AFE2AA229D200424966 /* StopWatchView.swift in Sources */,

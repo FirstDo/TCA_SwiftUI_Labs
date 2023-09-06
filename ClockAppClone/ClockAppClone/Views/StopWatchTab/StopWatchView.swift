@@ -3,7 +3,7 @@ import SwiftUI
 import SwiftUI
 import ComposableArchitecture
 
-private extension Double {
+fileprivate extension Double {
   var minuteAndSecond: String {
     let minute = String(format: "%02d", Int(self / 60))
     let second = String(format: "%05.2f", self.truncatingRemainder(dividingBy: 60))
@@ -16,7 +16,6 @@ struct StopWatchCore: Reducer {
   struct State: Equatable {
     var isTimmerRunning = false
     var time: Double = 0
-    
     
     var labs: [Double] = []
     
@@ -98,6 +97,7 @@ struct StopWatchView: View {
         
         buttons
       }
+      .frame(height: UIScreen.main.bounds.height / 2)
       
       List {
         ForEach(Array(viewStore.labs.enumerated()), id: \.element) { (index, value) in

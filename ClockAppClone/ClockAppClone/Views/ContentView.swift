@@ -22,7 +22,7 @@ struct ContentView: View {
           Label("스톱워치", systemImage: "stopwatch.fill")
         }
         .toolbar(.hidden, for: .navigationBar)
-      TimerView()
+      TimerView(store: .init(initialState: .init()) { TimerCore() })
         .tabItem {
           Label("타이머", systemImage: "timer")
         }
