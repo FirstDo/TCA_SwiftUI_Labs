@@ -10,6 +10,8 @@ struct TimerCore: Reducer {
       case stop
     }
     
+    @PresentationState var soundSelectionState: SoundSelectionCore.State?
+    
     let items = [Array(0...23), Array(0...59), Array(0...59)]
     @BindingState var hourMinuteSecond: [Int] = [0, 15, 0]
     
@@ -28,9 +30,12 @@ struct TimerCore: Reducer {
     case toggleTimer
     case resetTimer
     case rowTapped
+    case soundSelectionAction(PresentationAction<SoundSelectionCore.Action>)
   }
   
   @Dependency(\.continuousClock) var clock
+  let player = AudioService()
+  
   enum CancelID {
     case timer
   }
@@ -47,6 +52,7 @@ struct TimerCore: Reducer {
         state.remainTime -= 1
         
         if state.remainTime <= 0 {
+          player.play()
           return .send(.resetTimer)
         }
         
@@ -87,10 +93,20 @@ struct TimerCore: Reducer {
         return .cancel(id: CancelID.timer)
         
       case .rowTapped:
+        state.soundSelectionState = .init(selectedRing: "전파 탐지기")
+        return .none
+        
+      case .soundSelectionAction(.presented(.set)):
+        // call back -> ring 설정해주기
+        return .none
+        
+      case .soundSelectionAction:
         return .none
       }
     }
-    
+    .ifLet(\.$soundSelectionState, action: /Action.soundSelectionAction) {
+      SoundSelectionCore()
+    }
   }
 }
 
@@ -113,6 +129,9 @@ struct TimerView: View {
       AlarmPicker
       
       Spacer()
+    }
+    .sheet(store: store.scope(state: \.$soundSelectionState, action: TimerCore.Action.soundSelectionAction)) { subStore in
+      SoundSelectionView(store: subStore)
     }
   }
 }
@@ -155,13 +174,22 @@ private extension TimerView {
   
   var AlarmPicker: some View {
     Button {
-      
+      store.send(.rowTapped)
     } label: {
       HStack {
         Text("타이머 종료 시")
+          .foregroundColor(.white)
         Spacer()
-        Text("전파 탐지기>")
+        Text("전파 탐지기")
+          .foregroundColor(.white.opacity(0.5))
+        Image(systemName: "chevron.right")
+          .foregroundColor(.white.opacity(0.5))
       }
+      .padding()
+      .background(
+        RoundedRectangle(cornerRadius: 10)
+          .fill(Color(uiColor: .systemGray6))
+      )
     }
   }
 }

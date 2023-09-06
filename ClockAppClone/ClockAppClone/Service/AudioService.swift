@@ -1,23 +1,24 @@
 import Foundation
 import AVFoundation
 
-enum Sound {
-  
-}
-
 struct AudioService {
+  private let audioPlayer: AVAudioPlayer
   
-  private var audioPlayer: AVAudioPlayer!
-  
-  enum Sound: String {
-    case ex = "ex"
+  init() {
+    let sound = Bundle.main.path(forResource: "PocketCyclopsLvl1", ofType: "mp3")
+    let url = URL(fileURLWithPath: sound!)
+    self.audioPlayer = try! AVAudioPlayer(contentsOf: url)
   }
   
-  mutating func playSound(_ name: Sound) {
-    guard let url = Bundle.main.url(forResource: name.rawValue, withExtension: "mp3") else { return }
+  func play() {
+    if audioPlayer.isPlaying {
+      audioPlayer.pause()
+    }
     
-    audioPlayer = try! AVAudioPlayer(contentsOf: url)
-    audioPlayer.prepareToPlay()
     audioPlayer.play()
+  }
+  
+  func stop() {
+    audioPlayer.stop()
   }
 }

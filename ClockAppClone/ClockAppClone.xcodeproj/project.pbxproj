@@ -26,6 +26,7 @@
 		5BD05F732AA80278000BF8FA /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD05F722AA80278000BF8FA /* CustomPickerView.swift */; };
 		5BD05F752AA802AA000BF8FA /* TimeCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD05F742AA802AA000BF8FA /* TimeCircularView.swift */; };
 		5BD05F772AA80F73000BF8FA /* SoundSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD05F762AA80F73000BF8FA /* SoundSelectionView.swift */; };
+		5BD05F792AA83FA0000BF8FA /* PocketCyclopsLvl1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5BD05F782AA83FA0000BF8FA /* PocketCyclopsLvl1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		5BD05F722AA80278000BF8FA /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 		5BD05F742AA802AA000BF8FA /* TimeCircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCircularView.swift; sourceTree = "<group>"; };
 		5BD05F762AA80F73000BF8FA /* SoundSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSelectionView.swift; sourceTree = "<group>"; };
+		5BD05F782AA83FA0000BF8FA /* PocketCyclopsLvl1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = PocketCyclopsLvl1.mp3; path = "../../../../../Downloads/Adding Audio & Video in SwiftUI assets/PocketCyclopsLvl1.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		5B3E5ADA2AA2285A00424966 /* ClockAppClone */ = {
 			isa = PBXGroup;
 			children = (
+				5BD05F782AA83FA0000BF8FA /* PocketCyclopsLvl1.mp3 */,
 				5B3E5ADB2AA2285A00424966 /* ClockAppCloneApp.swift */,
 				5BD05F302AA5C515000BF8FA /* Service */,
 				5B8A13AB2AA5A11C00D8ED58 /* Model */,
@@ -307,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD05F792AA83FA0000BF8FA /* PocketCyclopsLvl1.mp3 in Resources */,
 				5B3E5AE32AA2285E00424966 /* Preview Assets.xcassets in Resources */,
 				5B3E5AE02AA2285E00424966 /* Assets.xcassets in Resources */,
 			);
