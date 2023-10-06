@@ -107,7 +107,6 @@
 				5BD05F782AA83FA0000BF8FA /* PocketCyclopsLvl1.mp3 */,
 				5B3E5ADB2AA2285A00424966 /* ClockAppCloneApp.swift */,
 				5BD05F302AA5C515000BF8FA /* Service */,
-				5B8A13AB2AA5A11C00D8ED58 /* Model */,
 				5B8A13AA2AA5A11500D8ED58 /* Views */,
 				5B3E5B0E2AA5776E00424966 /* Info.plist */,
 				5B3E5ADF2AA2285E00424966 /* Assets.xcassets */,
@@ -135,6 +134,7 @@
 		5B3E5AF92AA2299300424966 /* WorldClockTab */ = {
 			isa = PBXGroup;
 			children = (
+				5B3E5AFA2AA229AA00424966 /* WorldClockView.swift */,
 				5B3E5B0A2AA56A3900424966 /* WorldClockSelectView.swift */,
 				5B3E5B072AA22DED00424966 /* WorldClockItem.swift */,
 				5B3E5B092AA56A1200424966 /* Components */,
@@ -188,14 +188,6 @@
 				5B3E5AFF2AA229D900424966 /* TimerTab */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		5B8A13AB2AA5A11C00D8ED58 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5B3E5AFA2AA229AA00424966 /* WorldClockView.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		5B8A13AC2AA5A14600D8ED58 /* Components */ = {

@@ -34,6 +34,7 @@ struct WorldClockCore: Reducer {
       }
       return .none
     }
+    
     .ifLet(\.$selectCountryState, action: /Action.selectAction) {
       WorldClockSelectCore()
     }
@@ -70,6 +71,7 @@ struct WorldClockView: View {
       .listStyle(.inset)
     }
     .sheet(store: store.scope(state: \.$selectCountryState, action: { .selectAction($0) })) { subStore in
+      
       WorldClockSelectView(store: subStore)
     }
     .navigationTitle("세계 시계")
