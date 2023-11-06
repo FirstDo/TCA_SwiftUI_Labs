@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TCACoordinatorExample/TCACoordinatorExample.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ClockAppClone/ClockAppClone.xcodeproj">
    </FileRef>
    <FileRef
@@ -12,9 +15,6 @@
    </FileRef>
    <FileRef
       location = "group:SwiftUI_Concepts_Tutorials/SwiftUI_Concepts_Tutorials.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:TCA_Coordinator_Example/TCA_Coordinator_Example.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:ComposableTutorial/ComposableTutorial.xcodeproj">
