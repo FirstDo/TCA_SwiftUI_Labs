@@ -8,19 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		5BE44F862AF0D9E8006FFA3F /* TCACoordinatorExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44F852AF0D9E8006FFA3F /* TCACoordinatorExampleApp.swift */; };
-		5BE44F882AF0D9E8006FFA3F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44F872AF0D9E8006FFA3F /* ContentView.swift */; };
+		5BE44F882AF0D9E8006FFA3F /* MainTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44F872AF0D9E8006FFA3F /* MainTabCoordinator.swift */; };
 		5BE44F8A2AF0D9E9006FFA3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BE44F892AF0D9E9006FFA3F /* Assets.xcassets */; };
 		5BE44F8D2AF0D9E9006FFA3F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BE44F8C2AF0D9E9006FFA3F /* Preview Assets.xcassets */; };
 		5BE44F952AF0DA10006FFA3F /* TCACoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 5BE44F942AF0DA10006FFA3F /* TCACoordinators */; };
 		5BE44F982AF0DA24006FFA3F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5BE44F972AF0DA24006FFA3F /* ComposableArchitecture */; };
+		5BFE0A772AF880E200BB453F /* IndexedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE0A762AF880E200BB453F /* IndexedCoordinator.swift */; };
+		5BFE0A792AF8816900BB453F /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE0A782AF8816900BB453F /* Screen.swift */; };
+		5BFE0A7B2AF8A0B400BB453F /* IdentifiedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE0A7A2AF8A0B400BB453F /* IdentifiedCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5BE44F822AF0D9E8006FFA3F /* TCACoordinatorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCACoordinatorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE44F852AF0D9E8006FFA3F /* TCACoordinatorExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCACoordinatorExampleApp.swift; sourceTree = "<group>"; };
-		5BE44F872AF0D9E8006FFA3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5BE44F872AF0D9E8006FFA3F /* MainTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabCoordinator.swift; sourceTree = "<group>"; };
 		5BE44F892AF0D9E9006FFA3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BE44F8C2AF0D9E9006FFA3F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5BFE0A762AF880E200BB453F /* IndexedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexedCoordinator.swift; sourceTree = "<group>"; };
+		5BFE0A782AF8816900BB453F /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		5BFE0A7A2AF8A0B400BB453F /* IdentifiedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiedCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +61,9 @@
 		5BE44F842AF0D9E8006FFA3F /* TCACoordinatorExample */ = {
 			isa = PBXGroup;
 			children = (
+				5BFE0A752AF8807600BB453F /* Default */,
 				5BE44F852AF0D9E8006FFA3F /* TCACoordinatorExampleApp.swift */,
-				5BE44F872AF0D9E8006FFA3F /* ContentView.swift */,
+				5BE44F872AF0D9E8006FFA3F /* MainTabCoordinator.swift */,
 				5BE44F892AF0D9E9006FFA3F /* Assets.xcassets */,
 				5BE44F8B2AF0D9E9006FFA3F /* Preview Content */,
 			);
@@ -69,6 +76,16 @@
 				5BE44F8C2AF0D9E9006FFA3F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5BFE0A752AF8807600BB453F /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				5BFE0A762AF880E200BB453F /* IndexedCoordinator.swift */,
+				5BFE0A7A2AF8A0B400BB453F /* IdentifiedCoordinator.swift */,
+				5BFE0A782AF8816900BB453F /* Screen.swift */,
+			);
+			path = Default;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +166,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BE44F882AF0D9E8006FFA3F /* ContentView.swift in Sources */,
+				5BE44F882AF0D9E8006FFA3F /* MainTabCoordinator.swift in Sources */,
+				5BFE0A7B2AF8A0B400BB453F /* IdentifiedCoordinator.swift in Sources */,
 				5BE44F862AF0D9E8006FFA3F /* TCACoordinatorExampleApp.swift in Sources */,
+				5BFE0A772AF880E200BB453F /* IndexedCoordinator.swift in Sources */,
+				5BFE0A792AF8816900BB453F /* Screen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +229,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -266,7 +286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

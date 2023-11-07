@@ -4,7 +4,9 @@ import SwiftUI
 struct TCACoordinatorExampleApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      MainTabCoordinatorView(store: .init(initialState: .initialState) {
+        MainTabCoordinator()
+      })
     }
   }
 }
