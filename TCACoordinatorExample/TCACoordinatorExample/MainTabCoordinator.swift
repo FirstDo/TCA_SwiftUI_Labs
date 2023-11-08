@@ -16,6 +16,10 @@ struct MainTabCoordinatorView: View {
         IdentifiedCoordinatorView(store: store.scope(state: { $0.identified}, action: { .identified($0) }))
           .tabItem { Text("Identified") }
           .tag(MainTabCoordinator.Tab.identified)
+        
+        StepCoordinatorView(store: store.scope(state: { $0.step }, action: { .step($0)}))
+          .tabItem { Text("Step") }
+          .tag(MainTabCoordinator.Tab.step)
       }
     }
   }
@@ -25,6 +29,7 @@ struct MainTabCoordinator: Reducer {
   enum Tab: Hashable {
     case indexed
     case identified
+    case step
   }
   
   enum DeepLink {
@@ -34,6 +39,7 @@ struct MainTabCoordinator: Reducer {
   enum Action {
     case indexed(IndexedCoordinator.Action)
     case identified(IdentifiedCoordinator.Action)
+    case step(StepCoordinator.Action)
     case depplinkOpened(DeepLink)
     case tabSelected(Tab)
   }
@@ -42,11 +48,13 @@ struct MainTabCoordinator: Reducer {
     static let initialState = State(
       indexed: .initialState,
       identified: .initialState,
+      step: .initialState,
       selectedTab: .indexed
     )
     
     var indexed: IndexedCoordinator.State
     var identified: IdentifiedCoordinator.State
+    var step: StepCoordinator.State
     
     var selectedTab: Tab
   }
@@ -58,6 +66,10 @@ struct MainTabCoordinator: Reducer {
     
     Scope(state: \.identified, action: /Action.identified) {
       IdentifiedCoordinator()
+    }
+    
+    Scope(state: \.step, action: /Action.step) {
+      StepCoordinator()
     }
     
     Reduce { state, action in
