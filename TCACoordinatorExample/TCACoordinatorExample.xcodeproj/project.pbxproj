@@ -13,6 +13,12 @@
 		5B26A1732AF9FA6900796345 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26A1722AF9FA6900796345 /* SubmitView.swift */; };
 		5B26A1752AF9FE4000796345 /* StepScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26A1742AF9FE4000796345 /* StepScreen.swift */; };
 		5B26A1772AF9FFEB00796345 /* StepCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26A1762AF9FFEB00796345 /* StepCoordinator.swift */; };
+		5B26A17A2AFB13EA00796345 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26A1792AFB13EA00796345 /* WelcomeView.swift */; };
+		5B26A17C2AFB142E00796345 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26A17B2AFB142E00796345 /* LoginView.swift */; };
+		5B26A17E2AFB148B00796345 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26A17D2AFB148B00796345 /* GameView.swift */; };
+		5B26A1802AFB162400796345 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26A17F2AFB162400796345 /* LoginCoordinator.swift */; };
+		5B26A1822AFB178700796345 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26A1812AFB178700796345 /* GameCoordinator.swift */; };
+		5B26A1842AFB1C0500796345 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26A1832AFB1C0500796345 /* AppCoordinator.swift */; };
 		5BE44F862AF0D9E8006FFA3F /* TCACoordinatorExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44F852AF0D9E8006FFA3F /* TCACoordinatorExampleApp.swift */; };
 		5BE44F882AF0D9E8006FFA3F /* MainTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44F872AF0D9E8006FFA3F /* MainTabCoordinator.swift */; };
 		5BE44F8A2AF0D9E9006FFA3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BE44F892AF0D9E9006FFA3F /* Assets.xcassets */; };
@@ -31,6 +37,12 @@
 		5B26A1722AF9FA6900796345 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
 		5B26A1742AF9FE4000796345 /* StepScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepScreen.swift; sourceTree = "<group>"; };
 		5B26A1762AF9FFEB00796345 /* StepCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCoordinator.swift; sourceTree = "<group>"; };
+		5B26A1792AFB13EA00796345 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		5B26A17B2AFB142E00796345 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5B26A17D2AFB148B00796345 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		5B26A17F2AFB162400796345 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		5B26A1812AFB178700796345 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
+		5B26A1832AFB1C0500796345 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		5BE44F822AF0D9E8006FFA3F /* TCACoordinatorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCACoordinatorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE44F852AF0D9E8006FFA3F /* TCACoordinatorExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCACoordinatorExampleApp.swift; sourceTree = "<group>"; };
 		5BE44F872AF0D9E8006FFA3F /* MainTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabCoordinator.swift; sourceTree = "<group>"; };
@@ -67,6 +79,19 @@
 			path = Form;
 			sourceTree = "<group>";
 		};
+		5B26A1782AFB13DA00796345 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				5B26A1792AFB13EA00796345 /* WelcomeView.swift */,
+				5B26A17B2AFB142E00796345 /* LoginView.swift */,
+				5B26A17D2AFB148B00796345 /* GameView.swift */,
+				5B26A17F2AFB162400796345 /* LoginCoordinator.swift */,
+				5B26A1812AFB178700796345 /* GameCoordinator.swift */,
+				5B26A1832AFB1C0500796345 /* AppCoordinator.swift */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
 		5BE44F792AF0D9E8006FFA3F = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +111,7 @@
 		5BE44F842AF0D9E8006FFA3F /* TCACoordinatorExample */ = {
 			isa = PBXGroup;
 			children = (
+				5B26A1782AFB13DA00796345 /* Play */,
 				5BFE0A752AF8807600BB453F /* Default */,
 				5B26A16B2AF9F63E00796345 /* Form */,
 				5BE44F852AF0D9E8006FFA3F /* TCACoordinatorExampleApp.swift */,
@@ -194,14 +220,20 @@
 			files = (
 				5B26A1732AF9FA6900796345 /* SubmitView.swift in Sources */,
 				5B26A1752AF9FE4000796345 /* StepScreen.swift in Sources */,
+				5B26A1842AFB1C0500796345 /* AppCoordinator.swift in Sources */,
 				5B26A16D2AF9F64E00796345 /* Step1View.swift in Sources */,
 				5BE44F882AF0D9E8006FFA3F /* MainTabCoordinator.swift in Sources */,
 				5BFE0A7B2AF8A0B400BB453F /* IdentifiedCoordinator.swift in Sources */,
 				5B26A1772AF9FFEB00796345 /* StepCoordinator.swift in Sources */,
+				5B26A17E2AFB148B00796345 /* GameView.swift in Sources */,
 				5BE44F862AF0D9E8006FFA3F /* TCACoordinatorExampleApp.swift in Sources */,
+				5B26A17A2AFB13EA00796345 /* WelcomeView.swift in Sources */,
 				5B26A1712AF9F89700796345 /* Step3View.swift in Sources */,
 				5B26A16F2AF9F75000796345 /* Step2View.swift in Sources */,
+				5B26A17C2AFB142E00796345 /* LoginView.swift in Sources */,
+				5B26A1802AFB162400796345 /* LoginCoordinator.swift in Sources */,
 				5BFE0A772AF880E200BB453F /* IndexedCoordinator.swift in Sources */,
+				5B26A1822AFB178700796345 /* GameCoordinator.swift in Sources */,
 				5BFE0A792AF8816900BB453F /* Screen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
